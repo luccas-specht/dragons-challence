@@ -1,9 +1,8 @@
-export type LoggedInUser = {
-  nickname: string;
-  password: string;
-} | null;
+import { SignInSubmitDataDTO, LoggedInUser } from '..';
 
 export type LoggedInUserContextData = {
   user: LoggedInUser;
-  handleChangeLoggedInUser: (user?: LoggedInUser) => void;
+  isAuthenticated: boolean;
+  signIn: ({ nickname, password }: SignInSubmitDataDTO) => Promise<void>;
+  signOut: () => Promise<void>;
 };

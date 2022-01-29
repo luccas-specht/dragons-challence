@@ -1,3 +1,4 @@
-export * from './context';
-export * from './propreties';
+export * from './api';
 export * from './pages';
+export * from './context';
+export * from './properties';
