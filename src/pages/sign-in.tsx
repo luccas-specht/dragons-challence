@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
+import { parseCookies } from 'nookies';
 import type { GetServerSideProps, NextPage } from 'next';
 
 import { useUser } from '../hooks';
 import { SignInTemplate } from '../components';
 import { SignInSubmitDataDTO } from '../models';
-import { parseCookies } from 'nookies';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -22,15 +22,15 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-const Login: NextPage = () => {
-  const { signIn } = useUser();
+const SignIn: NextPage = () => {
+  const { login } = useUser();
 
   const handleSignIn = useCallback(
-    (data: SignInSubmitDataDTO) => signIn(data),
-    [signIn]
+    async (data: SignInSubmitDataDTO) => await login(data),
+    [login]
   );
 
   return <SignInTemplate handleSignIn={handleSignIn} />;
 };
 
-export default Login;
+export default SignIn;

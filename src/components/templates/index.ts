@@ -1,1 +1,2 @@
-export * from './sign-in';
+export { SignInTemplate } from './sign-in';
+export { SignUpTemplate } from './sign-up';

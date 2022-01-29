@@ -1,7 +1,7 @@
-import type { GetServerSideProps, NextPage } from 'next';
 import { parseCookies } from 'nookies';
+import type { GetServerSideProps, NextPage } from 'next';
 
-import Login from './login';
+import SignIn from './sign-in';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -19,6 +19,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-const Default: NextPage = () => <Login />;
+const Default: NextPage = () => <SignIn />;
 
 export default Default;

@@ -1,12 +1,10 @@
 import { v4 as uuidV4 } from 'uuid';
 
+import { fakeDelay } from '../../../utils';
 import { SignInSubmitDataDTO } from '../../../models';
 
-const delay = (amount = 1500) =>
-  new Promise((resolve) => setTimeout(resolve, amount));
-
 export const signInRequest = async (data: SignInSubmitDataDTO) => {
-  await delay();
+  await fakeDelay();
 
   return {
     token: uuidV4(),
