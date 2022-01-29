@@ -1,12 +1,13 @@
-import { useState, ReactNode, createContext } from 'react';
+import { useState, ReactNode, createContext, useEffect } from 'react';
+import { setCookie, parseCookies, destroyCookie } from 'nookies';
+import Router from 'next/router';
 
-import { LoggedInUser, LoggedInUserContextData } from '../models';
-
+import { signInRequest } from '../hooks';
 import {
-  getLoggedInUser,
-  removeLoggedInUser,
-  saveLoggedInUser,
-} from '../utils';
+  LoggedInUser,
+  SignInSubmitDataDTO,
+  LoggedInUserContextData,
+} from '../models';
 
 type UserProviderData = {
   children: ReactNode;
@@ -17,25 +18,49 @@ export const LoggedInUserContext = createContext<LoggedInUserContextData>(
 );
 
 export const LoggedInUserProvider = ({ children }: UserProviderData) => {
-  const [loggedInUser, setLoggedInUser] = useState<LoggedInUser>(() => {
-    const selectedUser = getLoggedInUser();
+  const cookieExpiriesInTwoHours = 60 * 60 * 2;
 
-    if (selectedUser) return JSON.parse(selectedUser);
-    return null;
-  });
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [user, setUser] = useState<LoggedInUser | null>(null);
 
-  const onChangeSelectedUserAsViewer = () => {
-    removeLoggedInUser();
-    setLoggedInUser(null);
+  useEffect(() => {
+    () => {
+      const { '@dragonsChallenge.loggedInUser': user } = parseCookies();
+
+      if (!!user && Object.values(user).length > 0) {
+        setIsAuthenticated(true);
+        return JSON.parse(user);
+      }
+      return null;
+    };
+  }, []);
+
+  const signIn = async (data: SignInSubmitDataDTO) => {
+    const { token, user } = await signInRequest(data);
+
+    setCookie(undefined, '@dragonsChallenge.token', token, {
+      maxAge: cookieExpiriesInTwoHours,
+    });
+    setCookie(undefined, '@dragonsChallenge.loggedInUser', `${user.nickname}`, {
+      maxAge: cookieExpiriesInTwoHours,
+    });
+
+    setUser(user);
+    setIsAuthenticated(true);
+    Router.push('/home');
   };
 
-  const handleChangeLoggedInUser = (user?: LoggedInUser) => {
-    user ? saveLoggedInUser(user) : onChangeSelectedUserAsViewer();
+  const signOut = async () => {
+    setUser(null);
+    setIsAuthenticated(false);
+    destroyCookie({}, '@dragonsChallenge.token');
+    destroyCookie({}, '@dragonsChallenge.loggedInUser');
+    Router.push('/login');
   };
 
   return (
     <LoggedInUserContext.Provider
-      value={{ user: loggedInUser, handleChangeLoggedInUser }}
+      value={{ user, isAuthenticated, signIn, signOut }}
     >
       {children}
     </LoggedInUserContext.Provider>

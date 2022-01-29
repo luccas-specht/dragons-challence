@@ -1,4 +1,1 @@
-export type {
-  LoggedInUser,
-  LoggedInUserContextData,
-} from './logged-In-user-context';
+export type { LoggedInUserContextData } from './logged-In-user-context';

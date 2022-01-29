@@ -4,19 +4,13 @@ import { Button, PasswordInput, TextInput } from '../..';
 import { SignInSubmitDataDTO } from '../../../models';
 
 type Props = {
-  textInputPlaceholder: string;
-  passwordInputPlaceholder: string;
-  handleSubmit: (data: SignInSubmitDataDTO) => void;
+  handleSignIn: (data: SignInSubmitDataDTO) => void;
 };
 
-export const SignInTemplate = ({
-  textInputPlaceholder,
-  passwordInputPlaceholder,
-  handleSubmit,
-}: Props) => (
-  <Form onSubmit={handleSubmit}>
-    <TextInput name="nickname" placeholder={textInputPlaceholder} />
-    <PasswordInput name="password" placeholder={passwordInputPlaceholder} />
+export const SignInTemplate = ({ handleSignIn }: Props) => (
+  <Form onSubmit={handleSignIn}>
+    <TextInput name="nickname" placeholder="Nome de usuário ou apelido" />
+    <PasswordInput name="password" placeholder="Senha" />
     <Button type="submit" name="sign-in-button" arialLabel="Fazer login">
       Entrar
     </Button>
