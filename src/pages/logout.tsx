@@ -1,5 +1,22 @@
-import type { NextPage } from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
+import { parseCookies } from 'nookies';
 
-const Logout: NextPage = () => <div>Login</div>;
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { '@dragonsChallenge.token': token } = parseCookies(ctx);
+
+  if (token)
+    return {
+      redirect: {
+        destination: '/home',
+        permanent: false,
+      },
+    };
+
+  return {
+    props: {},
+  };
+};
+
+const Logout: NextPage = () => <div>Logout</div>;
 
 export default Logout;

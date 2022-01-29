@@ -3,11 +3,10 @@ import { setCookie, parseCookies, destroyCookie } from 'nookies';
 import Router from 'next/router';
 
 import { signInRequest } from '../hooks';
-
 import {
   LoggedInUser,
-  LoggedInUserContextData,
   SignInSubmitDataDTO,
+  LoggedInUserContextData,
 } from '../models';
 
 type UserProviderData = {
