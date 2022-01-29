@@ -35,7 +35,7 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
     };
   }, []);
 
-  const signIn = async (data: SignInSubmitDataDTO) => {
+  const login = async (data: SignInSubmitDataDTO) => {
     const { token, user } = await signInRequest(data);
 
     setCookie(undefined, '@dragonsChallenge.token', token, {
@@ -50,17 +50,17 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
     Router.push('/home');
   };
 
-  const signOut = async () => {
+  const logOut = async () => {
     setUser(null);
     setIsAuthenticated(false);
     destroyCookie({}, '@dragonsChallenge.token');
     destroyCookie({}, '@dragonsChallenge.loggedInUser');
-    Router.push('/login');
+    Router.push('/sign-in');
   };
 
   return (
     <LoggedInUserContext.Provider
-      value={{ user, isAuthenticated, signIn, signOut }}
+      value={{ user, isAuthenticated, login, logOut }}
     >
       {children}
     </LoggedInUserContext.Provider>
