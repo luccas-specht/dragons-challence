@@ -3,7 +3,7 @@ import { v4 as uuidV4 } from 'uuid';
 import { fakeDelay } from '../../../utils';
 import { SignInSubmitDataDTO } from '../../../models';
 
-export const signInRequest = async (data: SignInSubmitDataDTO) => {
+export const useSignInRequest = async (data: SignInSubmitDataDTO) => {
   await fakeDelay();
 
   return {

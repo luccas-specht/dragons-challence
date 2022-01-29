@@ -2,7 +2,7 @@ import { useState, ReactNode, createContext, useEffect } from 'react';
 import { setCookie, parseCookies, destroyCookie } from 'nookies';
 import Router from 'next/router';
 
-import { signInRequest } from '../hooks';
+import { useSignInRequest } from '../hooks';
 import {
   LoggedInUser,
   SignInSubmitDataDTO,
@@ -36,7 +36,7 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
   }, []);
 
   const login = async (data: SignInSubmitDataDTO) => {
-    const { token, user } = await signInRequest(data);
+    const { token, user } = await useSignInRequest(data);
 
     setCookie(undefined, '@dragonsChallenge.token', token, {
       maxAge: cookieExpiriesInTwoHours,
@@ -47,7 +47,7 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
 
     setUser(user);
     setIsAuthenticated(true);
-    Router.push('/home');
+    Router.push('/list-dragons');
   };
 
   const logOut = async () => {
