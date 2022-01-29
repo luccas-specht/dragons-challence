@@ -7,7 +7,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   if (!token)
     return {
       redirect: {
-        destination: '/',
+        destination: '/sign-in',
         permanent: false,
       },
     };
@@ -17,8 +17,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-const Home: NextPage = () => {
-  return <div>Home Page</div>;
+const ListDragons: NextPage = () => {
+  return <div>ListDragons Page</div>;
 };
 
-export default Home;
+export default ListDragons;

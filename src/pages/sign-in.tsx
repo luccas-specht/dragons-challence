@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   if (token)
     return {
       redirect: {
-        destination: '/home',
+        destination: '/list-dragons',
         permanent: false,
       },
     };

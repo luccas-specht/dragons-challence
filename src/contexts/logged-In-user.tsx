@@ -47,7 +47,7 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
 
     setUser(user);
     setIsAuthenticated(true);
-    Router.push('/home');
+    Router.push('/list-dragons');
   };
 
   const logOut = async () => {
