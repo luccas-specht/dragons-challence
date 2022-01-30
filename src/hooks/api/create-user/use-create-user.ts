@@ -1,5 +1,5 @@
-import { fakeDelay } from '../../../utils';
-import { SignUpSubmitDataDTO } from '../../../models';
+import { fakeDelay } from '~/utils';
+import { SignUpSubmitDataDTO } from '~/models';
 
 export const useCreateUser = () => {
   const doCallCreateUserAPi = async (data: SignUpSubmitDataDTO) => {

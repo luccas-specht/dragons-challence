@@ -1,4 +1,4 @@
-export type Dragon = {
+export type DragonType = {
   createdAt: Date | string;
   name: string;
   type: string;
@@ -6,4 +6,4 @@ export type Dragon = {
   id: string;
 };
 
-export type Dragons = Dragon[];
+export type DragonsType = DragonType[];

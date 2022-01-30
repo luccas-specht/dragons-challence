@@ -1,2 +1,4 @@
+export { buildURL } from './buidURLs';
 export { fakeDelay } from './fake-delay-request';
-export { buildURL, buildURLWithParams } from './buidURLs';
+export { formatDate } from './date';
+export { orderDragonsByName } from './array';

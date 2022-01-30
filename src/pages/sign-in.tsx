@@ -2,9 +2,9 @@ import { useCallback } from 'react';
 import { parseCookies } from 'nookies';
 import type { GetServerSideProps, NextPage } from 'next';
 
-import { useUser } from '../hooks';
-import { SignInTemplate } from '../components';
-import { SignInSubmitDataDTO } from '../models';
+import { useUser } from '~/hooks';
+import { SignInTemplate } from '~/components';
+import { SignInSubmitDataDTO } from '~/models';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);

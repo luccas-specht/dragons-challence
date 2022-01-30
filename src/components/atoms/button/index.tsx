@@ -1,6 +1,9 @@
 import { ReactNode } from 'react';
+import classnames from 'classnames';
 
-import { ButtonType } from '../../../models';
+import { ButtonType } from '~/models';
+
+import styles from './button.module.scss';
 
 type Props = {
   name: string;
@@ -22,7 +25,7 @@ export const Button = ({
   <button
     type={type}
     name={name}
-    className={className}
+    className={classnames(styles.button, className)}
     aria-label={arialLabel}
     onClick={onClick}
   >

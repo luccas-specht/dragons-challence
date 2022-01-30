@@ -1,9 +1,11 @@
 import { parseCookies } from 'nookies';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import type { GetServerSideProps, NextPage } from 'next';
 
-import { Dragons } from '../models';
-import { useListAllDragons } from '../hooks';
+import { DragonsType } from '~/models';
+import { orderDragonsByName } from '~/utils';
+import { ListDragonsTemplate } from '~/components';
+import { useDeleteDragon, useListAllDragons } from '~/hooks';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -22,19 +24,35 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 };
 
 const ListDragons: NextPage = () => {
-  const [dragons, setDragons] = useState<Dragons>([]);
-  const { call } = useListAllDragons();
+  const { call: callApiToList } = useListAllDragons();
+  const { call: callApiToDelete } = useDeleteDragon();
 
-  const callAPI = async () => {
-    const { data, error } = await call();
-    !error && data ? setDragons(data) : alert(error);
+  const [dragons, setDragons] = useState<DragonsType>([]);
+
+  const handleDeleteDragon = useCallback(async (dragonId: string) => {
+    const { data, error } = await callApiToDelete(dragonId);
+
+    if (error && !data) alert(error);
+
+    listDragons();
+  }, []);
+
+  const listDragons = async () => {
+    const { data, error } = await callApiToList();
+    /* TODO: colocar tost */
+    !error && data ? setDragons(orderDragonsByName(data)) : alert(error);
   };
 
   useEffect(() => {
-    callAPI();
+    listDragons();
   }, []);
 
-  return <div>ListDragons Page</div>;
+  return (
+    <ListDragonsTemplate
+      dragons={dragons}
+      onDeleteDragon={handleDeleteDragon}
+    />
+  );
 };
 
 export default ListDragons;

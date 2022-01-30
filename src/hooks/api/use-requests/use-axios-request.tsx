@@ -1,9 +1,9 @@
 import { AxiosError, AxiosRequestConfig } from 'axios';
 
-import { buildURL } from '../../../utils';
-import { HTTP_METHODS } from '../../../constants';
-import { useAxiosMockApi } from '../../../services';
-import { Response, ResponseType } from '../../../models';
+import { buildURL } from '~/utils';
+import { HTTP_METHODS } from '~/constants';
+import { useAxiosMockApi } from '~/services';
+import { Response, ResponseType } from '~/models';
 
 type Config = {
   url?: string;
