@@ -2,9 +2,12 @@ import { useCallback } from 'react';
 import { parseCookies } from 'nookies';
 import type { GetServerSideProps, NextPage } from 'next';
 
+import { FcGoogle } from 'react-icons/fc';
+import { FaFacebook } from 'react-icons/fa';
+
 import { useUser } from '~/hooks';
-import { SignInTemplate } from '~/components';
 import { SubmitDataDTO } from '~/models';
+import { SignInTemplate } from '~/components';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -25,16 +28,28 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 const SignIn: NextPage = () => {
   const { login } = useUser();
 
+  const signInWithGoogle = () => (
+    <>
+      <FcGoogle /> Entre com Google
+    </>
+  );
+
+  const signInWithFacebook = () => (
+    <>
+      <FaFacebook color="#3b5998" /> Entre com Facebook
+    </>
+  );
+
   const authButtons = [
     {
       buttonId: 'sign-in-with-google',
       buttonName: 'sign-in-with-google',
-      buttonChildren: 'Entre com Google',
+      buttonChildren: signInWithGoogle(),
     },
     {
       buttonId: 'sign-in-with-facebook',
       buttonName: 'sign-in-with-facebook',
-      buttonChildren: 'Entre com Facebook',
+      buttonChildren: signInWithFacebook(),
     },
   ];
 
