@@ -43,7 +43,7 @@ export const MainForm = ({
     authButtons?.length > 0 && (
       <>
         <WrapperAuthButtons infos={authButtons} />
-        <div className={styles['container-main__separator']}> ou</div>
+        <div className={styles['container-main__separator']}>ou</div>
       </>
     );
 
