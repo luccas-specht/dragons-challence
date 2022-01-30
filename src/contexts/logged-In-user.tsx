@@ -18,6 +18,7 @@ export const LoggedInUserContext = createContext<LoggedInUserContextData>(
 );
 
 export const LoggedInUserProvider = ({ children }: UserProviderData) => {
+  const { call } = useSignInRequest();
   const cookieExpiriesInTwoHours = 60 * 60 * 2;
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -36,7 +37,7 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
   }, []);
 
   const login = async (data: SignInSubmitDataDTO) => {
-    const { token, user } = await useSignInRequest(data);
+    const { token, user } = await call(data);
 
     setCookie(undefined, '@dragonsChallenge.token', token, {
       maxAge: cookieExpiriesInTwoHours,

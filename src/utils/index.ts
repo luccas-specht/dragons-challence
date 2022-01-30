@@ -1,2 +1,2 @@
+export { buildURL } from './buidURLs';
 export { fakeDelay } from './fake-delay-request';
-export { buildURL, buildURLWithParams } from './buidURLs';
