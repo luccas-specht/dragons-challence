@@ -1,3 +1,30 @@
 .button {
-  background-color: red;
+  height: 45px;
+  width: 100%;
+  min-width: 250px;
+  margin-top: 10px;
+  border-radius: 25px;
+  line-height: 17px;
+
+  &__styles {
+    &--primary {
+      color: #ffffff;
+      background-color: #2d9cdb;
+      font-weight: bold;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    &--secondary {
+      font-size: 14px;
+      line-height: 17px;
+      color: #828282;
+      border: 1.5px solid #dedede;
+      background-color: #fff;
+    }
+  }
+
+  & + button {
+    margin-top: 10px;
+  }
 }

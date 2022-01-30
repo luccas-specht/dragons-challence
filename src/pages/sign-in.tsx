@@ -25,6 +25,19 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 const SignIn: NextPage = () => {
   const { login } = useUser();
 
+  const authButtons = [
+    {
+      buttonId: 'sign-in-with-google',
+      buttonName: 'sign-in-with-google',
+      buttonChildren: 'Entre com Google',
+    },
+    {
+      buttonId: 'sign-in-with-facebook',
+      buttonName: 'sign-in-with-facebook',
+      buttonChildren: 'Entre com Facebook',
+    },
+  ];
+
   const handleSignIn = useCallback(
     async (data: SubmitDataDTO) => await login(data),
     [login]
@@ -32,12 +45,15 @@ const SignIn: NextPage = () => {
 
   return (
     <SignInTemplate
+      authButtons={authButtons}
+      linkTo="/sign-up"
+      linkText="Criar Conta"
       buttonName="sign-in-button"
       textInputName="sing-in-text-input"
       buttonChildren="Entrar"
-      textInputLabel="Nome de usuário ou apelido"
+      textInputLabel="Usuário ou apelido"
       passwordInputLabel="Senha"
-      passwordInputName="sing-out-text-input"
+      passwordInputName="sing-in-password-input"
       handleSignIn={handleSignIn}
     />
   );

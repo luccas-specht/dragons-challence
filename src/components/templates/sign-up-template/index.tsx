@@ -1,7 +1,11 @@
-import { MainForm } from '~/components';
 import { SubmitDataDTO } from '~/models';
+import { MainForm, Layout } from '~/components';
+
+import styles from './sign-up-template.module.scss';
 
 type Props = {
+  linkTo: string;
+  linkText: string;
   buttonName: string;
   buttonChildren: string | JSX.Element;
   textInputName: string;
@@ -12,6 +16,8 @@ type Props = {
 };
 
 export const SignUpTemplate = ({
+  linkTo,
+  linkText,
   buttonName,
   buttonChildren,
   textInputLabel,
@@ -20,13 +26,17 @@ export const SignUpTemplate = ({
   passwordInputLabel,
   handleSignUp,
 }: Props) => (
-  <MainForm
-    buttonName={buttonName}
-    textInputName={textInputName}
-    textInputLabel={textInputLabel}
-    buttonChildren={buttonChildren}
-    passwordInputName={passwordInputName}
-    passwordInputLabel={passwordInputLabel}
-    handleSubmit={handleSignUp}
-  />
+  <Layout className={styles['sign-up-template']}>
+    <MainForm
+      linkTo={linkTo}
+      linkText={linkText}
+      buttonName={buttonName}
+      textInputName={textInputName}
+      textInputLabel={textInputLabel}
+      buttonChildren={buttonChildren}
+      passwordInputName={passwordInputName}
+      passwordInputLabel={passwordInputLabel}
+      handleSubmit={handleSignUp}
+    />
+  </Layout>
 );

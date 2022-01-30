@@ -10,20 +10,23 @@ type Props = {
   type?: ButtonType;
   children: ReactNode;
   onClick?: () => void;
-  className?: string;
+  className?: 'primary' | 'secondary';
 };
 
 export const Button = ({
   name,
   type = 'button',
   children,
-  className = '',
+  className = 'primary',
   onClick = () => {},
 }: Props) => (
   <button
     type={type}
     name={name}
-    className={classnames(styles.button, className)}
+    className={classnames(
+      styles.button,
+      styles[`button__styles--${className}`]
+    )}
     onClick={onClick}
   >
     {children}

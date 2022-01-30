@@ -1,9 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
 
+import { IoEyeSharp } from 'react-icons/all';
+
 import { GenericInputProps } from '../../models';
 
-export const PasswordInput = ({ name, ...rest }: GenericInputProps) => {
+import styles from './password-input.module.scss';
+
+export const PasswordInput = ({
+  name,
+  placeholder,
+  ...rest
+}: GenericInputProps) => {
   const inputRef = useRef(null);
   const { fieldName, defaultValue = '', registerField } = useField(name);
 
@@ -18,11 +26,17 @@ export const PasswordInput = ({ name, ...rest }: GenericInputProps) => {
   }, [fieldName, registerField]);
 
   return (
-    <input
-      type="password"
-      ref={inputRef}
-      defaultValue={defaultValue}
-      {...rest}
-    />
+    <div className={styles['password-input']}>
+      <label htmlFor={name}>
+        {`${placeholder}:`}
+        <input
+          type="password"
+          ref={inputRef}
+          defaultValue={defaultValue}
+          placeholder={placeholder}
+          {...rest}
+        />
+      </label>
+    </div>
   );
 };

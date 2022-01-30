@@ -36,12 +36,14 @@ const SignUp: NextPage = () => {
 
   return (
     <SignUpTemplate
-      buttonName="sign-in-button"
-      textInputName="sing-in-text-input"
-      buttonChildren="Entrar"
-      textInputLabel="Nome de usuário ou apelido"
+      linkTo="/sign-in"
+      linkText="Voltar"
+      buttonName="sign-up-button"
+      textInputName="sing-up-text-input"
+      buttonChildren="Cadastrar"
+      textInputLabel="Usuário ou apelido"
       passwordInputLabel="Senha"
-      passwordInputName="sing-out-text-input"
+      passwordInputName="sing-up-password-input"
       handleSignUp={handleSignUp}
     />
   );
