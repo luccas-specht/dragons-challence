@@ -1,3 +1,3 @@
 export enum DRAGONS_URLS {
-  DRAGON = 'dragon',
+  BASE_URL = 'dragon',
 }

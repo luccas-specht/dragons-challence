@@ -5,9 +5,10 @@ import styles from './wapper-dragons-component.module.scss';
 
 type Props = {
   dragons: DragonsType;
+  onDeleteDragon: (id: string) => void;
 };
 
-export const WapperDragonsComponent = ({ dragons }: Props) => (
+export const WapperDragonsComponent = ({ dragons, onDeleteDragon }: Props) => (
   <div className={styles.dragons}>
     {dragons.map(({ id, name, type, createdAt }) => (
       <DragonCard
@@ -16,6 +17,7 @@ export const WapperDragonsComponent = ({ dragons }: Props) => (
         name={name}
         type={type}
         createdAt={createdAt}
+        onDeleteDragon={onDeleteDragon}
       />
     ))}
   </div>

@@ -4,9 +4,10 @@ import { WapperDragonsComponent } from '~/components';
 
 type Props = {
   dragons: DragonsType;
+  onDeleteDragon: (id: string) => void;
 };
-export const ListDragonsTemplate = ({ dragons }: Props) => (
+export const ListDragonsTemplate = ({ dragons, onDeleteDragon }: Props) => (
   <Layout>
-    <WapperDragonsComponent dragons={dragons} />
+    <WapperDragonsComponent dragons={dragons} onDeleteDragon={onDeleteDragon} />
   </Layout>
 );
