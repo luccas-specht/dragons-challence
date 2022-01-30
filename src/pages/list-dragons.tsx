@@ -2,8 +2,9 @@ import { parseCookies } from 'nookies';
 import { useEffect, useState } from 'react';
 import type { GetServerSideProps, NextPage } from 'next';
 
-import { Dragons } from '~/models';
+import { DragonsType } from '~/models';
 import { useListAllDragons } from '~/hooks';
+import { ListDragonsTemplate } from '~/components';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -22,7 +23,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 };
 
 const ListDragons: NextPage = () => {
-  const [dragons, setDragons] = useState<Dragons>([]);
+  const [dragons, setDragons] = useState<DragonsType>([]);
   const { call } = useListAllDragons();
 
   const callAPI = async () => {
@@ -34,7 +35,7 @@ const ListDragons: NextPage = () => {
     callAPI();
   }, []);
 
-  return <div>ListDragons Page</div>;
+  return <ListDragonsTemplate dragons={dragons} />;
 };
 
 export default ListDragons;
