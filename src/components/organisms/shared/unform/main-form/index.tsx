@@ -8,6 +8,7 @@ import {
   PasswordInput,
   TextInput,
   WrapperAuthButtons,
+  Banner,
 } from '~/components';
 
 import styles from './main-form.module.scss';
@@ -48,6 +49,7 @@ export const MainForm = ({
 
   return (
     <div className={styles['container-main']}>
+      <Banner />
       {renderWrapperAuthButtons()}
       <Form onSubmit={handleSubmit} className={styles['container-main__form']}>
         <TextInput name={textInputName} placeholder={textInputLabel} />

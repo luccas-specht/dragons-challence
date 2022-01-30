@@ -37,7 +37,7 @@ const SignUp: NextPage = () => {
   return (
     <SignUpTemplate
       linkTo="/sign-in"
-      linkText="Voltar"
+      linkText="Fazer login"
       buttonName="sign-up-button"
       textInputName="sing-up-text-input"
       buttonChildren="Cadastrar"
