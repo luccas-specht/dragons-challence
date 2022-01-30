@@ -1,0 +1,34 @@
+.text-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+
+  label {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    color: #4f4f4f;
+    min-width: 250px;
+    line-height: 20px;
+  }
+
+  input {
+    background: #232129;
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 45px;
+    width: 100%;
+    border: none;
+    border: 1px solid #666360;
+
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 17px;
+    display: flex;
+    color: #666360;
+  }
+}

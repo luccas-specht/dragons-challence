@@ -5,7 +5,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 
 import { useCreateUser } from '~/hooks';
 import { SignUpTemplate } from '~/components';
-import { SignUpSubmitDataDTO } from '~/models';
+import { SubmitDataDTO } from '~/models';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -27,14 +27,24 @@ const SignUp: NextPage = () => {
   const { callAPI } = useCreateUser();
 
   const handleSignUp = useCallback(
-    async (data: SignUpSubmitDataDTO) => {
+    async (data: SubmitDataDTO) => {
       await callAPI(data);
       Router.push('/sign-in');
     },
     [callAPI]
   );
 
-  return <SignUpTemplate handleSignUp={handleSignUp} />;
+  return (
+    <SignUpTemplate
+      buttonName="sign-in-button"
+      textInputName="sing-in-text-input"
+      buttonChildren="Entrar"
+      textInputLabel="Nome de usuário ou apelido"
+      passwordInputLabel="Senha"
+      passwordInputName="sing-out-text-input"
+      handleSignUp={handleSignUp}
+    />
+  );
 };
 
 export default SignUp;

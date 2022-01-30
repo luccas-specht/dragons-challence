@@ -4,7 +4,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 
 import { useUser } from '~/hooks';
 import { SignInTemplate } from '~/components';
-import { SignInSubmitDataDTO } from '~/models';
+import { SubmitDataDTO } from '~/models';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -26,11 +26,21 @@ const SignIn: NextPage = () => {
   const { login } = useUser();
 
   const handleSignIn = useCallback(
-    async (data: SignInSubmitDataDTO) => await login(data),
+    async (data: SubmitDataDTO) => await login(data),
     [login]
   );
 
-  return <SignInTemplate handleSignIn={handleSignIn} />;
+  return (
+    <SignInTemplate
+      buttonName="sign-in-button"
+      textInputName="sing-in-text-input"
+      buttonChildren="Entrar"
+      textInputLabel="Nome de usuário ou apelido"
+      passwordInputLabel="Senha"
+      passwordInputName="sing-out-text-input"
+      handleSignIn={handleSignIn}
+    />
+  );
 };
 
 export default SignIn;

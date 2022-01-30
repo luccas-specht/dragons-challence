@@ -3,7 +3,13 @@ import { useField } from '@unform/core';
 
 import { GenericInputProps } from '../../models';
 
-export const TextInput = ({ name, ...rest }: GenericInputProps) => {
+import styles from './text-input.module.scss';
+
+export const TextInput = ({
+  name,
+  placeholder,
+  ...rest
+}: GenericInputProps) => {
   const inputRef = useRef(null);
   const { fieldName, defaultValue = '', registerField } = useField(name);
 
@@ -17,6 +23,17 @@ export const TextInput = ({ name, ...rest }: GenericInputProps) => {
     });
   }, [fieldName, registerField]);
   return (
-    <input type="text" ref={inputRef} defaultValue={defaultValue} {...rest} />
+    <div className={styles['text-input']}>
+      <label htmlFor={name}>
+        {`${placeholder}:`}
+        <input
+          type="text"
+          ref={inputRef}
+          defaultValue={defaultValue}
+          placeholder={placeholder}
+          {...rest}
+        />
+      </label>
+    </div>
   );
 };

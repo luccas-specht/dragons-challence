@@ -3,11 +3,7 @@ import { setCookie, parseCookies, destroyCookie } from 'nookies';
 import Router from 'next/router';
 
 import { useSignInRequest } from '~/hooks';
-import {
-  LoggedInUser,
-  SignInSubmitDataDTO,
-  LoggedInUserContextData,
-} from '~/models';
+import { LoggedInUser, SubmitDataDTO, LoggedInUserContextData } from '~/models';
 
 type UserProviderData = {
   children: ReactNode;
@@ -36,7 +32,7 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
     };
   }, []);
 
-  const login = async (data: SignInSubmitDataDTO) => {
+  const login = async (data: SubmitDataDTO) => {
     const { token, user } = await call(data);
 
     setCookie(undefined, '@dragonsChallenge.token', token, {

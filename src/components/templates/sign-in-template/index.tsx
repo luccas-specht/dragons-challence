@@ -1,21 +1,32 @@
-import { Form } from '@unform/web';
-
-import { Button, PasswordInput, TextInput } from '../..';
-import { SignInSubmitDataDTO } from '~/models';
+import { MainForm } from '~/components';
+import { SubmitDataDTO } from '~/models';
 
 type Props = {
-  handleSignIn: (data: SignInSubmitDataDTO) => Promise<void>;
+  buttonName: string;
+  buttonChildren: string | JSX.Element;
+  textInputName: string;
+  textInputLabel: string;
+  passwordInputLabel: string;
+  passwordInputName: string;
+  handleSignIn: (data: SubmitDataDTO) => Promise<void>;
 };
 
-export const SignInTemplate = ({ handleSignIn }: Props) => (
-  <Form onSubmit={handleSignIn}>
-    <TextInput
-      name="nickname-sing-in"
-      placeholder="Nome de usuário ou apelido"
-    />
-    <PasswordInput name="nickname-sing-in" placeholder="Senha" />
-    <Button type="submit" name="sign-in-button" arialLabel="Fazer login">
-      Entrar
-    </Button>
-  </Form>
+export const SignInTemplate = ({
+  buttonName,
+  buttonChildren,
+  textInputLabel,
+  textInputName,
+  passwordInputName,
+  passwordInputLabel,
+  handleSignIn,
+}: Props) => (
+  <MainForm
+    buttonName={buttonName}
+    textInputName={textInputName}
+    textInputLabel={textInputLabel}
+    buttonChildren={buttonChildren}
+    passwordInputName={passwordInputName}
+    passwordInputLabel={passwordInputLabel}
+    handleSubmit={handleSignIn}
+  />
 );
