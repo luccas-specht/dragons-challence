@@ -1,7 +1,7 @@
 import { v4 as uuidV4 } from 'uuid';
 
-import { fakeDelay } from '../../../utils';
-import { SignInSubmitDataDTO } from '../../../models';
+import { fakeDelay } from '~/utils';
+import { SignInSubmitDataDTO } from '~/models';
 
 export const useSignInRequest = () => {
   const doCallAPI = async (data: SignInSubmitDataDTO) => {

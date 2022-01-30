@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { ButtonType } from '../../../models';
+import { ButtonType } from '~/models';
 
 type Props = {
   name: string;

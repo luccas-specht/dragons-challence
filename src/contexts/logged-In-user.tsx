@@ -2,12 +2,12 @@ import { useState, ReactNode, createContext, useEffect } from 'react';
 import { setCookie, parseCookies, destroyCookie } from 'nookies';
 import Router from 'next/router';
 
-import { useSignInRequest } from '../hooks';
+import { useSignInRequest } from '~/hooks';
 import {
   LoggedInUser,
   SignInSubmitDataDTO,
   LoggedInUserContextData,
-} from '../models';
+} from '~/models';
 
 type UserProviderData = {
   children: ReactNode;

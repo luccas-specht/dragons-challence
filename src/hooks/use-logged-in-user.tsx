@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 
-import { LoggedInUserContext } from '../contexts';
-import { LoggedInUserContextData } from '../models';
+import { LoggedInUserContext } from '~/contexts';
+import { LoggedInUserContextData } from '~/models';
 
 export const useUser = () => {
   const ERROR_MESSAGE =

@@ -1,7 +1,7 @@
 import { Form } from '@unform/web';
 
 import { Button, PasswordInput, TextInput } from '../..';
-import { SignInSubmitDataDTO } from '../../../models';
+import { SignInSubmitDataDTO } from '~/models';
 
 type Props = {
   handleSignIn: (data: SignInSubmitDataDTO) => Promise<void>;

@@ -1,5 +1,5 @@
-import { Dragons } from '../../../models';
-import { DRAGONS_URLS } from '../../../constants';
+import { Dragons } from '~/models';
+import { DRAGONS_URLS } from '~/constants';
 import { useAxiosRequest } from '../use-requests';
 
 export const useListAllDragons = () => {

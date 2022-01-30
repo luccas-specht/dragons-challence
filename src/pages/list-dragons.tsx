@@ -2,8 +2,8 @@ import { parseCookies } from 'nookies';
 import { useEffect, useState } from 'react';
 import type { GetServerSideProps, NextPage } from 'next';
 
-import { Dragons } from '../models';
-import { useListAllDragons } from '../hooks';
+import { Dragons } from '~/models';
+import { useListAllDragons } from '~/hooks';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);

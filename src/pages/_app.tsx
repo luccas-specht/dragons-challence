@@ -1,8 +1,8 @@
 import type { AppProps } from 'next/app';
 
-import { LoggedInUserProvider } from '../contexts';
+import { LoggedInUserProvider } from '~/contexts';
 
-import '../styles/globals.css';
+import '~/styles/globals.css';
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <LoggedInUserProvider>
