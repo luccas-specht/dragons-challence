@@ -4,6 +4,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 
 import { DragonsType } from '~/models';
 import { useListAllDragons } from '~/hooks';
+import { orderDragonsByName } from '~/utils';
 import { ListDragonsTemplate } from '~/components';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -28,7 +29,8 @@ const ListDragons: NextPage = () => {
 
   const callAPI = async () => {
     const { data, error } = await call();
-    !error && data ? setDragons(data) : alert(error);
+    /* TODO: colocar tost */
+    !error && data ? setDragons(orderDragonsByName(data)) : alert(error);
   };
 
   useEffect(() => {

@@ -1,32 +1,33 @@
 import Image from 'next/image';
+import { FcEmptyTrash } from 'react-icons/fc';
 
-import { formatDate } from '~/utils';
 import { DragonType } from '~/models';
+import { DragonCardLine } from '~/components';
 
 import styles from './dragon-card.module.scss';
 
 import defaultDragonImage from '../../../../public/images/default-dragon-image.jpg';
 
-type Props = Omit<DragonType, 'histories'>;
+type DragonTypeNonHistories = Omit<DragonType, 'histories'>;
 
-export const DragonCard = ({ id, name, type, createdAt }: Props) => {
-  const shouldRenderOriginalPropertyOrDefaultProperty = (
-    property: string | null,
-    defaultProperty: string
-  ) => (property && property.length > 0 ? property : defaultProperty);
-
-  return (
-    <main className={styles.card}>
-      <Image src={defaultDragonImage} alt={`Dragão-${name}`} />
-      <aside className={styles['card-info']}>
-        <h3>
-          {shouldRenderOriginalPropertyOrDefaultProperty(name, 'Charizard')}
-        </h3>
-        <span>
-          {shouldRenderOriginalPropertyOrDefaultProperty(type, 'Fogo')}
-        </span>
-        <span>{formatDate(createdAt, 'DD/MM')}</span>
-      </aside>
-    </main>
-  );
+type Props = DragonTypeNonHistories & {
+  onDeleteDragon: (id: string) => void;
 };
+
+export const DragonCard = ({
+  id,
+  name,
+  type,
+  createdAt,
+  onDeleteDragon,
+}: Props) => (
+  <main className={styles.card}>
+    <Image src={defaultDragonImage} alt={`Dragão-${name}`} />
+    <DragonCardLine name={name} type={type} createdAt={createdAt} />
+    <FcEmptyTrash
+      onClick={() => {
+        onDeleteDragon(id);
+      }}
+    />
+  </main>
+);
