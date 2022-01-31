@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { FcEmptyTrash } from 'react-icons/fc';
+import { GrUpdate } from 'react-icons/gr';
 
 import { DragonType } from '~/models';
 import { DragonCardLine } from '~/components';
@@ -7,6 +8,7 @@ import { DragonCardLine } from '~/components';
 import styles from './dragon-card.module.scss';
 
 import defaultDragonImage from '../../../../public/images/default-dragon-image.jpg';
+import Link from 'next/link';
 
 type DragonTypeNonHistories = Omit<DragonType, 'histories'>;
 
@@ -29,5 +31,8 @@ export const DragonCard = ({
         onDeleteDragon(id);
       }}
     />
+    <Link href={`/update-dragon/${id}`}>
+      <a>edit</a>
+    </Link>
   </main>
 );
