@@ -34,5 +34,8 @@ export const DragonCard = ({
     <Link href={`/update-dragon/${id}`}>
       <a>edit</a>
     </Link>
+    <Link href={`/dragon-details/${id}`}>
+      <a>detalhes</a>
+    </Link>
   </main>
 );

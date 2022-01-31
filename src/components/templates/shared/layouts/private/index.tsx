@@ -1,6 +1,6 @@
-import { ReactNode, useMemo } from 'react';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
+import { ReactNode, useMemo } from 'react';
 
 import { useUser } from '~/hooks';
 import { Header } from '~/components';
@@ -14,8 +14,8 @@ type Props = {
 };
 
 export const PrivateLayout = ({ className = '', children }: Props) => {
-  const { asPath } = useRouter();
   const { logOut } = useUser();
+  const { asPath } = useRouter();
 
   const navegations: Navegations = [
     {

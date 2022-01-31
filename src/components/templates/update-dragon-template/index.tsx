@@ -32,7 +32,7 @@ export const UpdateDragonTemplate = ({
   textInputLabelDragonHistory,
   handleSubmit,
 }: Props) => (
-  <PrivateLayout className={styles['create-dragon-template']}>
+  <PrivateLayout className={styles['update-dragon-template']}>
     <DragonForm
       title="Editar dragão"
       formRef={formRef}

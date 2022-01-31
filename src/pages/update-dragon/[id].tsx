@@ -32,7 +32,7 @@ const UpdateDragonPage: NextPage = () => {
   const { call: doCallDragonDetails } = useGetDragonDetails();
   const formRef: any = useRef(null);
 
-  const [initalValues, setInitialvalues] =
+  const [initalValues, setInitialValues] =
     useState<InitialValuesUpdateDragonForm>({
       name: '',
       type: '',
@@ -46,7 +46,7 @@ const UpdateDragonPage: NextPage = () => {
   const getDragonDetails = async () => {
     const { data, error } = await doCallDragonDetails(String(id));
     if (!error && data) {
-      setInitialvalues({
+      setInitialValues({
         name: data.name,
         histories: data.histories,
         type: data.type,
