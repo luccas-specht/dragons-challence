@@ -3,9 +3,8 @@ import classNames from 'classnames';
 import { useRouter } from 'next/router';
 
 import { useUser } from '~/hooks';
+import { Header } from '~/components';
 import { Navegations } from '~/models';
-
-import { Header } from '../../../../organisms/shared/header/index';
 
 import styles from './private-layout.module.scss';
 
@@ -16,7 +15,7 @@ type Props = {
 
 export const PrivateLayout = ({ className = '', children }: Props) => {
   const { asPath } = useRouter();
-  const { user, logOut } = useUser();
+  const { logOut } = useUser();
 
   const navegations: Navegations = [
     {
@@ -46,10 +45,7 @@ export const PrivateLayout = ({ className = '', children }: Props) => {
 
   return (
     <>
-      <Header
-        nickname={user?.nickname ?? 'Admin'}
-        navegations={navegationsToShow}
-      />
+      <Header nickname={'Luccas Specht'} navegations={navegationsToShow} />
       <div className={classNames(styles.container, className)}>{children}</div>
     </>
   );
