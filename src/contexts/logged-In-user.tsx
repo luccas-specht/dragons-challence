@@ -23,6 +23,7 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
   useEffect(() => {
     () => {
       const { '@dragonsChallenge.loggedInUser': user } = parseCookies();
+      console.log('no cooo', user);
 
       if (!!user && Object.values(user).length > 0) {
         setIsAuthenticated(true);
@@ -54,6 +55,12 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
     destroyCookie({}, '@dragonsChallenge.loggedInUser');
     Router.push('/sign-in');
   };
+
+  /* const getNickname = () => {
+    const { '@dragonsChallenge.loggedInUser': user } = parseCookies();
+
+    return user.nickname;
+  }; */
 
   return (
     <LoggedInUserContext.Provider

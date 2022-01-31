@@ -26,7 +26,7 @@ export const Header = ({
 
   return (
     <header className={styles['header']}>
-      <PublicLayout className={styles['header-container']}>
+      <div className={styles['header-container']}>
         <Banner className={styles['header-container__banner']} />
         <aside className={styles['header-container__wrapper-user']}>
           <Image
@@ -43,7 +43,7 @@ export const Header = ({
             handleOutsideClick={handleOutsideClick}
           />
         </aside>
-      </PublicLayout>
+      </div>
     </header>
   );
 };

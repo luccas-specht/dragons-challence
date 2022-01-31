@@ -1,12 +1,13 @@
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 import classNames from 'classnames';
+import { useRouter } from 'next/router';
 
 import { useUser } from '~/hooks';
+import { Navegations } from '~/models';
 
 import { Header } from '../../../../organisms/shared/header/index';
 
 import styles from './private-layout.module.scss';
-import { Navegations } from '~/models';
 
 type Props = {
   className?: string;
@@ -14,9 +15,10 @@ type Props = {
 };
 
 export const PrivateLayout = ({ className = '', children }: Props) => {
+  const { asPath } = useRouter();
   const { user, logOut } = useUser();
 
-  const NAVEGATIONS: Navegations = [
+  const navegations: Navegations = [
     {
       id: 'send-to-create-dragon',
       name: 'Criar um dragão',
@@ -37,9 +39,17 @@ export const PrivateLayout = ({ className = '', children }: Props) => {
     },
   ];
 
+  const navegationsToShow = useMemo(
+    () => navegations.filter(({ redirectTo }) => redirectTo !== asPath),
+    []
+  );
+
   return (
     <>
-      <Header nickname={user?.nickname ?? 'Admin'} navegations={NAVEGATIONS} />
+      <Header
+        nickname={user?.nickname ?? 'Admin'}
+        navegations={navegationsToShow}
+      />
       <div className={classNames(styles.container, className)}>{children}</div>
     </>
   );
