@@ -1,4 +1,4 @@
-import { Layout } from '../shared';
+import { PrivateLayout } from '../shared';
 import { DragonsType } from '~/models';
 import { WapperDragonsComponent } from '~/components';
 
@@ -7,7 +7,7 @@ type Props = {
   onDeleteDragon: (id: string) => void;
 };
 export const ListDragonsTemplate = ({ dragons, onDeleteDragon }: Props) => (
-  <Layout>
+  <PrivateLayout>
     <WapperDragonsComponent dragons={dragons} onDeleteDragon={onDeleteDragon} />
-  </Layout>
+  </PrivateLayout>
 );

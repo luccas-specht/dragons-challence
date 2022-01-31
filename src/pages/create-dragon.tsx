@@ -1,6 +1,5 @@
 import { parseCookies } from 'nookies';
 import type { GetServerSideProps, NextPage } from 'next';
-import { Header } from '~/components/organisms/shared/header';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -19,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 };
 
 const CreateDragonPage: NextPage = () => {
-  return <Header nickname="paulo" userAvatar="" />;
+  return <div>oi</div>;
 };
 
 export default CreateDragonPage;

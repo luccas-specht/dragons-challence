@@ -1,13 +1,13 @@
 import { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import styles from './layout.module.scss';
+import styles from './public-layout.module.scss';
 
 type Props = {
   className?: string;
   children: ReactNode;
 };
 
-export const Layout = ({ className = '', children }: Props) => (
+export const PublicLayout = ({ className = '', children }: Props) => (
   <div className={classNames(styles.container, className)}>{children}</div>
 );

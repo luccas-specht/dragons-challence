@@ -1,0 +1,41 @@
+.container {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  margin: auto;
+
+  /* Small smartphone */
+  @media (min-width: 280px) and (max-width: 360px) {
+    max-width: 280px;
+  }
+
+  /* Smartphone */
+  @media (min-width: 360px) and (max-width: 480px) {
+    max-width: 320px;
+  }
+
+  /* Large smartphone */
+  @media (min-width: 480px) {
+    max-width: 420px;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) {
+    max-width: 688px;
+  }
+
+  /* Large tablet */
+  @media (min-width: 1024px) {
+    max-width: 919px;
+  }
+
+  /* Desktop */
+  @media (min-width: 1280px) {
+    max-width: 1175px;
+  }
+
+  /* Large desktop */
+  @media (min-width: 1440px) {
+    max-width: 1300px;
+  }
+}

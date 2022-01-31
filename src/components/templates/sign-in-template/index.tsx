@@ -1,5 +1,5 @@
 import { AuthButtons, SubmitDataDTO } from '~/models';
-import { Layout, MainForm, WrapperAuthButtons } from '~/components';
+import { PublicLayout, MainForm } from '~/components';
 
 import styles from './sign-in-template.module.scss';
 
@@ -28,7 +28,7 @@ export const SignInTemplate = ({
   passwordInputLabel,
   handleSignIn,
 }: Props) => (
-  <Layout className={styles['sign-in-template']}>
+  <PublicLayout className={styles['sign-in-template']}>
     <MainForm
       authButtons={authButtons}
       linkTo={linkTo}
@@ -41,5 +41,5 @@ export const SignInTemplate = ({
       passwordInputLabel={passwordInputLabel}
       handleSubmit={handleSignIn}
     />
-  </Layout>
+  </PublicLayout>
 );

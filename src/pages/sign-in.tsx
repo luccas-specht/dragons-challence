@@ -64,11 +64,11 @@ const SignInPage: NextPage = () => {
       linkTo="/sign-up"
       linkText="Criar Conta"
       buttonName="sign-in-button"
-      textInputName="sing-in-text-input"
+      textInputName="nickname"
       buttonChildren="Entrar"
       textInputLabel="Usuário ou apelido"
       passwordInputLabel="Senha"
-      passwordInputName="sing-in-password-input"
+      passwordInputName="password"
       handleSignIn={handleSignIn}
     />
   );
