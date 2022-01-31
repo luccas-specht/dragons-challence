@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-const SignIn: NextPage = () => {
+const SignInPage: NextPage = () => {
   const { login } = useUser();
 
   const signInWithGoogle = () => (
@@ -74,4 +74,4 @@ const SignIn: NextPage = () => {
   );
 };
 
-export default SignIn;
+export default SignInPage;

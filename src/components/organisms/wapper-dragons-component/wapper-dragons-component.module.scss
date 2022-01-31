@@ -2,4 +2,26 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  position: relative;
+
+  a {
+    position: absolute;
+    z-index: 100;
+    right: 40px;
+    bottom: 0;
+    width: 64px;
+    height: 64px;
+    background: #2d9cdb;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+
+    svg {
+      height: 30px;
+      width: 30px;
+      color: #fff;
+    }
+  }
 }

@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-const ListDragons: NextPage = () => {
+const ListDragonsPage: NextPage = () => {
   const { call: callApiToList } = useListAllDragons();
   const { call: callApiToDelete } = useDeleteDragon();
 
@@ -55,4 +55,4 @@ const ListDragons: NextPage = () => {
   );
 };
 
-export default ListDragons;
+export default ListDragonsPage;

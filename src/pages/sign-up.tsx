@@ -23,7 +23,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-const SignUp: NextPage = () => {
+const SignUpPage: NextPage = () => {
   const { callAPI } = useCreateUser();
 
   const handleSignUp = useCallback(
@@ -49,4 +49,4 @@ const SignUp: NextPage = () => {
   );
 };
 
-export default SignUp;
+export default SignUpPage;

@@ -1,15 +1,14 @@
 import { parseCookies } from 'nookies';
 import type { GetServerSideProps, NextPage } from 'next';
-
-import SignIn from './sign-in';
+import { Header } from '~/components/organisms/shared/header';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
 
-  if (token)
+  if (!token)
     return {
       redirect: {
-        destination: '/list-dragons',
+        destination: '/sign-in',
         permanent: false,
       },
     };
@@ -19,6 +18,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   };
 };
 
-const DefaultPage: NextPage = () => <SignIn />;
+const CreateDragonPage: NextPage = () => {
+  return <Header nickname="paulo" userAvatar="" />;
+};
 
-export default DefaultPage;
+export default CreateDragonPage;
