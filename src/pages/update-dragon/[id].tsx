@@ -1,11 +1,11 @@
-import { useCallback, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { parseCookies } from 'nookies';
 import type { GetServerSideProps, NextPage } from 'next';
-
-import { UpdateDragonDTO } from '~/models';
-import { useUpdateDragon } from '~/hooks';
-import { CreateDragonTemplate } from '~/components';
 import { useRouter } from 'next/router';
+
+import { UpdateDragonTemplate } from '~/components';
+import { useGetDragonDetails, useUpdateDragon } from '~/hooks';
+import { InitialValuesUpdateDragonForm, UpdateDragonDTO } from '~/models';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -28,19 +28,41 @@ const UpdateDragonPage: NextPage = () => {
     query: { id },
   } = useRouter();
 
-  console.log('loggg', id);
-
-  const { call } = useUpdateDragon();
+  const { call: doCallUpdateDetails } = useUpdateDragon();
+  const { call: doCallDragonDetails } = useGetDragonDetails();
   const formRef: any = useRef(null);
+
+  const [initalValues, setInitialvalues] =
+    useState<InitialValuesUpdateDragonForm>({
+      name: '',
+      type: '',
+      histories: '',
+    });
 
   const resetForm = () => {
     formRef?.current?.reset();
   };
 
+  const getDragonDetails = async () => {
+    const { data, error } = await doCallDragonDetails(String(id));
+    if (!error && data) {
+      setInitialvalues({
+        name: data.name,
+        histories: data.histories,
+        type: data.type,
+      });
+    } else {
+      alert('bah cpx, nem te conto...');
+    }
+  };
+
+  useEffect(() => {
+    getDragonDetails();
+  }, []);
+
   const handleSubmitUpdateDragon = useCallback(
     async (dragon: UpdateDragonDTO) => {
-      const { data, error } = await call(String(id), dragon);
-
+      const { data, error } = await doCallUpdateDetails(String(id), dragon);
       /* TODO: colocar toast */
       if (!error && data) {
         resetForm();
@@ -48,19 +70,20 @@ const UpdateDragonPage: NextPage = () => {
         alert('bah cpx, nem te conto...');
       }
     },
-    [call]
+    [doCallUpdateDetails]
   );
 
   return (
-    <CreateDragonTemplate
+    <UpdateDragonTemplate
       formRef={formRef}
       buttonName="sign-in-button"
-      buttonChildren="Criar"
-      textInputDragonName="name"
-      textInputLabelDragonName="Nome"
+      initalValues={initalValues}
+      buttonChildren="Salvar alterações"
       textInputDragonType="type"
-      textInputLabelDragonType="Tipo"
+      textInputDragonName="name"
       textInputDragonHistory="histories"
+      textInputLabelDragonName="Nome"
+      textInputLabelDragonType="Tipo"
       textInputLabelDragonHistory="Descrição"
       handleSubmit={handleSubmitUpdateDragon}
     />

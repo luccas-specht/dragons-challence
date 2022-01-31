@@ -1,8 +1,8 @@
 import { MutableRefObject } from 'react';
 import { Form } from '@unform/web';
 
-import { CreateDragonDTO } from '~/models';
 import { Button, Text, TextInput } from '~/components';
+import { CreateDragonDTO, InitialValuesUpdateDragonForm } from '~/models';
 
 import styles from './dragon-form.module.scss';
 
@@ -10,6 +10,7 @@ type Props = {
   title?: string;
   formRef: MutableRefObject<null>;
   buttonName: string;
+  initalValues?: InitialValuesUpdateDragonForm;
   buttonChildren: string | JSX.Element;
   textInputDragonName: string;
   textInputLabelDragonName: string;
@@ -24,6 +25,7 @@ export const DragonForm = ({
   title = 'Crie seu dragão',
   formRef,
   buttonName,
+  initalValues,
   buttonChildren,
   textInputDragonName,
   textInputDragonType,
@@ -40,6 +42,7 @@ export const DragonForm = ({
       </aside>
       <Form
         ref={formRef}
+        initialData={initalValues}
         onSubmit={handleSubmit}
         className={styles['container-main__form']}
       >
