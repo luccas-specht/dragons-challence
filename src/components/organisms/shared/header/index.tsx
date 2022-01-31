@@ -1,20 +1,28 @@
-import Image from 'next/image';
 import { useState } from 'react';
-import { GiHamburgerMenu } from 'react-icons/gi';
-
-import { Banner, Text, PublicLayout } from '~/components';
+import Image from 'next/image';
 
 import defaultAvatar from '../../../../../public/images/this-person-does-not-exists.jpg';
+
+import { Navegations } from '~/models';
+import { Banner, FloatingMenu, UserDetails, PublicLayout } from '~/components';
 
 import styles from './header.module.scss';
 
 type Props = {
   nickname: string;
   userAvatar?: string | StaticImageData;
+  navegations: Navegations;
 };
 
-export const Header = ({ nickname, userAvatar = defaultAvatar }: Props) => {
-  const [] = useState(false);
+export const Header = ({
+  nickname,
+  navegations,
+  userAvatar = defaultAvatar,
+}: Props) => {
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+  const handleOpenMenu = () => setIsOpenMenu(isOpenMenu ? false : true);
+  const handleOutsideClick = () => setIsOpenMenu(false);
 
   return (
     <header className={styles['header']}>
@@ -27,21 +35,13 @@ export const Header = ({ nickname, userAvatar = defaultAvatar }: Props) => {
             width={50}
             height={50}
           />
-          <div className={styles['header-container__wrapper-user__infos']}>
-            <Text
-              value="Bem vindo,"
-              className={
-                styles['header-container__wrapper-user__infos--wellcome']
-              }
-            />
-            <Text
-              value={nickname}
-              className={
-                styles['header-container__wrapper-user__infos--user-name']
-              }
-            />
-          </div>
-          <GiHamburgerMenu />
+          <UserDetails nickname={nickname} />
+          <FloatingMenu
+            isOpen={isOpenMenu}
+            navegations={navegations}
+            handleOpenMenu={handleOpenMenu}
+            handleOutsideClick={handleOutsideClick}
+          />
         </aside>
       </PublicLayout>
     </header>
