@@ -4,9 +4,9 @@ import classnames from 'classnames';
 import Router from 'next/router';
 
 import { Navegations } from '~/models';
+import Link from 'next/link';
 
 import styles from './floating-menu.module.scss';
-import Link from 'next/link';
 
 type Props = {
   isOpen: boolean;

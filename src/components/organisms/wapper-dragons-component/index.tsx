@@ -1,8 +1,5 @@
-import Link from 'next/link';
-import { FiPlus } from 'react-icons/fi';
-
-import { DragonCard } from '~/components';
 import { DragonsType } from '~/models';
+import { DragonCard, FloatingLink } from '~/components';
 
 import styles from './wapper-dragons-component.module.scss';
 
@@ -29,13 +26,9 @@ export const WapperDragonsComponent = ({
       />
     ));
   return (
-    <div className={styles.dragons}>
+    <div className={styles['wrapper-dragons']}>
       {renderDragons()}
-      <Link href={linkTo}>
-        <a>
-          <FiPlus />
-        </a>
-      </Link>
+      <FloatingLink linkTo={linkTo} />
     </div>
   );
 };
