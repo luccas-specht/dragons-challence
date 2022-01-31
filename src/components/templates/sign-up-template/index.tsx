@@ -1,5 +1,5 @@
 import { SubmitDataDTO } from '~/models';
-import { MainForm, Layout } from '~/components';
+import { MainForm, PublicLayout } from '~/components';
 
 import styles from './sign-up-template.module.scss';
 
@@ -26,7 +26,7 @@ export const SignUpTemplate = ({
   passwordInputLabel,
   handleSignUp,
 }: Props) => (
-  <Layout className={styles['sign-up-template']}>
+  <PublicLayout className={styles['sign-up-template']}>
     <MainForm
       linkTo={linkTo}
       linkText={linkText}
@@ -38,5 +38,5 @@ export const SignUpTemplate = ({
       passwordInputLabel={passwordInputLabel}
       handleSubmit={handleSignUp}
     />
-  </Layout>
+  </PublicLayout>
 );

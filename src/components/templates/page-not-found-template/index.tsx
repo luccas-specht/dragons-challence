@@ -1,7 +1,7 @@
-import { Layout, PageNotFound } from '~/components';
+import { PublicLayout, PageNotFound } from '~/components';
 
 export const PageNotFoundTemplate = () => (
-  <Layout>
+  <PublicLayout>
     <PageNotFound />
-  </Layout>
+  </PublicLayout>
 );

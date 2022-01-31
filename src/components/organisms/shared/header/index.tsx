@@ -1,27 +1,49 @@
+import { useState } from 'react';
 import Image from 'next/image';
-import { GiHamburgerMenu } from 'react-icons/gi';
 
-import { Banner, Text } from '~/components';
+import defaultAvatar from '../../../../../public/images/this-person-does-not-exists.jpg';
+
+import { Navegations } from '~/models';
+import { Banner, FloatingMenu, UserDetails, PublicLayout } from '~/components';
 
 import styles from './header.module.scss';
 
 type Props = {
   nickname: string;
-  userAvatar: string;
+  userAvatar?: string | StaticImageData;
+  navegations: Navegations;
 };
 
-export const Header = ({ nickname, userAvatar }: Props) => (
-  <header className={styles['header']}>
-    <Banner />
-    <aside>
-      {/*  <Image src={userAvatar} alt="Foto de perfil do usuário" /> */}
-      <div>
-        <Text value="Bem vindo," />
-        <Text value={nickname} />
-      </div>
-    </aside>
-    <aside>
-      <GiHamburgerMenu />
-    </aside>
-  </header>
-);
+export const Header = ({
+  nickname,
+  navegations,
+  userAvatar = defaultAvatar,
+}: Props) => {
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+  const handleOpenMenu = () => setIsOpenMenu(isOpenMenu ? false : true);
+  const handleOutsideClick = () => setIsOpenMenu(false);
+
+  return (
+    <header className={styles['header']}>
+      <PublicLayout className={styles['header-container']}>
+        <Banner className={styles['header-container__banner']} />
+        <aside className={styles['header-container__wrapper-user']}>
+          <Image
+            src={userAvatar}
+            alt="Foto de perfil do usuário"
+            width={50}
+            height={50}
+          />
+          <UserDetails nickname={nickname} />
+          <FloatingMenu
+            isOpen={isOpenMenu}
+            navegations={navegations}
+            handleOpenMenu={handleOpenMenu}
+            handleOutsideClick={handleOutsideClick}
+          />
+        </aside>
+      </PublicLayout>
+    </header>
+  );
+};
