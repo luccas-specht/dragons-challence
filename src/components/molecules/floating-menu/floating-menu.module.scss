@@ -20,11 +20,6 @@
     border-radius: 5px;
     z-index: 9999;
 
-    &--open {
-      opacity: 1;
-      visibility: visible;
-    }
-
     a {
       width: 186px;
       height: 50px;
@@ -44,6 +39,11 @@
         color: white;
         background-color: #333333;
       }
+    }
+
+    &--open {
+      opacity: 1;
+      visibility: visible;
     }
   }
 }

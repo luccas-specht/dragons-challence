@@ -1,10 +1,9 @@
-import { GiHamburgerMenu } from 'react-icons/gi';
-import OutsideClickHandler from 'react-outside-click-handler';
+import Link from 'next/link';
 import classnames from 'classnames';
-import Router from 'next/router';
+import OutsideClickHandler from 'react-outside-click-handler';
+import { GiHamburgerMenu } from 'react-icons/gi';
 
 import { Navegations } from '~/models';
-import Link from 'next/link';
 
 import styles from './floating-menu.module.scss';
 
@@ -22,9 +21,9 @@ export const FloatingMenu = ({
   handleOutsideClick,
 }: Props) => {
   const showMenu = () =>
-    navegations.map(({ id, name, redirectTo }) => (
-      <Link key={id} href={redirectTo}>
-        {name}
+    navegations.map(({ id, name, redirectTo, onRedirect = () => {} }) => (
+      <Link key={id} href={redirectTo} passHref>
+        <a onClick={onRedirect}>{name}</a>
       </Link>
     ));
 

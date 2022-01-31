@@ -9,7 +9,7 @@ type Props = {
 
 export const UserDetails = ({
   nickname,
-  textWellcome = 'Bem Vindo,',
+  textWellcome = 'Bem vindo,',
 }: Props) => (
   <div className={styles['user-details']}>
     <Text value={textWellcome} className={styles['user-details--wellcome']} />
