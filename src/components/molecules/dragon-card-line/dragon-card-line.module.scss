@@ -1,5 +1,5 @@
 .line {
-  color: #eee;
+  color: $secondary-white;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,8 +11,8 @@
   }
 
   &--text {
-    color: rgb(39, 189, 39);
-    background-color: #22254b;
+    color: $primary-green;
+    background-color: $secondary-background-card;
     border-radius: 3px;
     font-weight: bold;
     padding: 0.25rem 0.5rem;

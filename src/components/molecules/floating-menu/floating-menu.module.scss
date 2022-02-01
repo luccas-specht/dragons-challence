@@ -3,7 +3,7 @@
     svg {
       width: 20px;
       height: 20px;
-      color: #2d9cdb;
+      color: $primary-blue;
       cursor: pointer;
     }
   }
@@ -15,10 +15,10 @@
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
-    box-shadow: 0 4px 5px #11111199;
+    box-shadow: 0 4px 5px $secondary-black;
     transition: 0.2s all linear;
     border-radius: 5px;
-    z-index: 9999;
+    z-index: 200;
     margin-top: 20px;
 
     a {
@@ -32,13 +32,13 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      color: #333333;
-      background-color: #f2f2f2;
+      color: $tertiary-black;
+      background-color: $primary-background-color;
       cursor: pointer;
 
       &:hover {
-        color: white;
-        background-color: #333333;
+        color: $primary-white;
+        background-color: $tertiary-black;
       }
     }
 

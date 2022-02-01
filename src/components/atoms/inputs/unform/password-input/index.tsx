@@ -1,7 +1,5 @@
-import React, { useEffect, useRef } from 'react';
 import { useField } from '@unform/core';
-
-import { IoEyeSharp } from 'react-icons/all';
+import React, { useEffect, useRef } from 'react';
 
 import { GenericInputProps } from '../../models';
 

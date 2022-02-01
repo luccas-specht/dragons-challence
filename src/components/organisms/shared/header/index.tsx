@@ -4,7 +4,7 @@ import Image from 'next/image';
 import defaultAvatar from '../../../../../public/images/this-person-does-not-exists.jpg';
 
 import { Navegations } from '~/models';
-import { Banner, FloatingMenu, UserDetails, PublicLayout } from '~/components';
+import { Banner, FloatingMenu, UserDetails } from '~/components';
 
 import styles from './header.module.scss';
 

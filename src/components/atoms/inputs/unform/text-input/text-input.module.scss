@@ -8,15 +8,15 @@
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
-    color: #2c2c2c;
+    color: $primary-black;
     width: 100%;
   }
 
   input {
     font-size: 13px;
     line-height: 16px;
-    color: #2c2c2c;
-    border: 1.5px solid #2d9cdb;
+    color: $primary-black;
+    border: 1.5px solid $primary-blue;
     border-radius: 4px;
     width: 100%;
     min-width: 250px;

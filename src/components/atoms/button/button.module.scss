@@ -8,19 +8,27 @@
 
   &__styles {
     &--primary {
-      color: #ffffff;
-      background-color: #2d9cdb;
+      color: $primary-white;
+      background-color: $primary-blue;
       font-weight: bold;
       font-size: 12px;
       text-transform: uppercase;
+
+      &:hover {
+        background-color: darken($primary-blue, 5%);
+      }
     }
 
     &--secondary {
       font-size: 14px;
       line-height: 17px;
-      color: #828282;
-      border: 1.5px solid #dedede;
-      background-color: #fff;
+      color: $primary-gray;
+      border: 1.5px solid $secondary-gray;
+      background-color: $primary-white;
+
+      &:hover {
+        background-color: darken($primary-white, 5%);
+      }
     }
   }
 

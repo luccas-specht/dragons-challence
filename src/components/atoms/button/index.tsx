@@ -9,8 +9,8 @@ type Props = {
   name: string;
   type?: ButtonType;
   children: ReactNode;
-  onClick?: () => void;
   className?: 'primary' | 'secondary';
+  onClick?: () => void;
 };
 
 export const Button = ({
