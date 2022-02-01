@@ -26,7 +26,7 @@ export const TextInput = ({
       setValue: (ref, value) => (ref.current.value = value),
       clearValue: (ref) => (ref.current.value = ''),
     });
-  }, [fieldName, registerField]);
+  }, [fieldName, registerField, error]);
 
   return (
     <div className={styles['text-input']}>
