@@ -1,8 +1,12 @@
 import * as Yup from 'yup';
+import Router from 'next/router';
+import { toast } from 'react-toastify';
 import { useRef, useState } from 'react';
+
 import { parseCookies } from 'nookies';
 import type { GetServerSideProps, NextPage } from 'next';
 
+import { fakeDelay } from '~/utils';
 import { CreateDragonDTO } from '~/models';
 import { useCreateDragon } from '~/hooks';
 import { dragonFormSchema } from '~/validations';
@@ -38,11 +42,14 @@ const CreateDragonPage: NextPage = () => {
     setIsLoading(true);
     const { data, error } = await call(dragon);
 
-    /* TODO: colocar toast */
     if (!error && data) {
       resetForm();
+      setIsLoading(false);
+      toast.success('Dragão criado com sucesso!');
+      await fakeDelay(3500);
+      Router.push('/list-dragons');
     } else {
-      alert('bah cpx, nem te conto...');
+      toast.error(error);
     }
     setIsLoading(false);
   };
@@ -55,7 +62,7 @@ const CreateDragonPage: NextPage = () => {
         abortEarly: false,
       });
 
-      doCallAPI(dragon);
+      await doCallAPI(dragon);
     } catch (err) {
       const validationErrors = {} as any;
 

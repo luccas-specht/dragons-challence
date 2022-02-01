@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import { ReactNode, useMemo } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useUser } from '~/hooks';
 import { Header } from '~/components';
@@ -16,6 +18,10 @@ type Props = {
 export const PrivateLayout = ({ className = '', children }: Props) => {
   const { user, logOut } = useUser();
   const { asPath } = useRouter();
+
+  const autoClose = 3000;
+  const toastContainerLimit = 1;
+  const toastContainerPosition = 'top-right';
 
   const navegations: Navegations = [
     {
@@ -51,6 +57,17 @@ export const PrivateLayout = ({ className = '', children }: Props) => {
         navegations={navegationsToShow}
       />
       <div className={classNames(styles.container, className)}>{children}</div>
+      <ToastContainer
+        rtl={false}
+        limit={toastContainerLimit}
+        position={toastContainerPosition}
+        autoClose={autoClose}
+        draggable={false}
+        closeOnClick={false}
+        newestOnTop
+        pauseOnHover
+        theme="colored"
+      />
     </>
   );
 };

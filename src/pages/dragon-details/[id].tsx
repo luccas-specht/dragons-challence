@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import { parseCookies } from 'nookies';
 import { useEffect, useState } from 'react';
@@ -37,11 +38,10 @@ const DragonDetailsPage: NextPage = () => {
     setIsLoading(true);
     const { data, error } = await doCallDragonDetails(String(id));
 
-    // TODO: TOASt
     if (!error && data) {
       setDragon(data);
     } else {
-      alert('bah cpx, nem te conto...');
+      toast.error(error);
     }
     await fakeDelay(500);
     setIsLoading(false);

@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import { parseCookies } from 'nookies';
 import { useCallback, useEffect, useState } from 'react';
 import type { GetServerSideProps, NextPage } from 'next';
@@ -33,7 +34,7 @@ const ListDragonsPage: NextPage = () => {
   const handleDeleteDragon = useCallback(async (dragonId: string) => {
     const { data, error } = await callApiToDelete(dragonId);
 
-    if (error && !data) alert(error);
+    if (error && !data) toast.error(error);
 
     listDragons();
   }, []);
@@ -42,11 +43,10 @@ const ListDragonsPage: NextPage = () => {
     setIsLoading(true);
     const { data, error } = await callApiToList();
 
-    // TODO: TOASt
     if (!error && data) {
       setDragons(orderDragonsByName(data));
     } else {
-      alert(error);
+      toast.error(error);
     }
     await fakeDelay(500);
     setIsLoading(false);

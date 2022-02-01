@@ -1,4 +1,6 @@
 import * as Yup from 'yup';
+import Router from 'next/router';
+import { toast } from 'react-toastify';
 import { parseCookies } from 'nookies';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
@@ -8,6 +10,7 @@ import { UpdateDragonTemplate } from '~/components';
 import { useGetDragonDetails, useUpdateDragon } from '~/hooks';
 import { InitialValuesUpdateDragonForm, UpdateDragonDTO } from '~/models';
 import { dragonFormSchema } from '~/validations';
+import { fakeDelay } from '~/utils';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -52,8 +55,12 @@ const UpdateDragonPage: NextPage = () => {
 
     if (!error && data) {
       resetForm();
+      setIsLoading(false);
+      toast.success('Seu dragão foi editado com sucesso!');
+      await fakeDelay(3500);
+      Router.push('/list-dragons');
     } else {
-      alert('bah cpx, nem te conto...');
+      toast.error(error);
     }
     setIsLoading(false);
   };
@@ -89,7 +96,7 @@ const UpdateDragonPage: NextPage = () => {
         type: data.type,
       });
     } else {
-      alert('bah cpx, nem te conto...');
+      toast.error(error);
     }
   };
 
