@@ -21,4 +21,16 @@
       flex-wrap: wrap;
     }
   }
+
+  &__spinner {
+    min-height: 300px;
+    width: 100%;
+
+    &::before,
+    &::after {
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+    }
+  }
 }

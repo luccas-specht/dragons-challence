@@ -9,8 +9,8 @@ import { Navegations } from '~/models';
 import styles from './private-layout.module.scss';
 
 type Props = {
-  className?: string;
   children: ReactNode;
+  className?: string;
 };
 
 export const PrivateLayout = ({ className = '', children }: Props) => {
@@ -46,7 +46,7 @@ export const PrivateLayout = ({ className = '', children }: Props) => {
   return (
     <>
       <Header
-        nickname={user?.nickname ?? ''}
+        nickname={user?.nickname ?? 'Luccas Specht'}
         userAvatar={user?.avatarUrl}
         navegations={navegationsToShow}
       />

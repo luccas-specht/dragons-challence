@@ -3,8 +3,8 @@ import { useCallback, useEffect, useState } from 'react';
 import type { GetServerSideProps, NextPage } from 'next';
 
 import { DragonsType } from '~/models';
-import { orderDragonsByName } from '~/utils';
 import { ListDragonsTemplate } from '~/components';
+import { fakeDelay, orderDragonsByName } from '~/utils';
 import { useDeleteDragon, useListAllDragons } from '~/hooks';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -28,6 +28,7 @@ const ListDragonsPage: NextPage = () => {
   const { call: callApiToDelete } = useDeleteDragon();
 
   const [dragons, setDragons] = useState<DragonsType>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleDeleteDragon = useCallback(async (dragonId: string) => {
     const { data, error } = await callApiToDelete(dragonId);
@@ -38,9 +39,17 @@ const ListDragonsPage: NextPage = () => {
   }, []);
 
   const listDragons = async () => {
+    setIsLoading(true);
     const { data, error } = await callApiToList();
-    /* TODO: colocar tost */
-    !error && data ? setDragons(orderDragonsByName(data)) : alert(error);
+
+    // TODO: TOASt
+    if (!error && data) {
+      setDragons(orderDragonsByName(data));
+    } else {
+      alert(error);
+    }
+    await fakeDelay(500);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -50,6 +59,7 @@ const ListDragonsPage: NextPage = () => {
   return (
     <ListDragonsTemplate
       dragons={dragons}
+      isLoading={isLoading}
       onDeleteDragon={handleDeleteDragon}
     />
   );

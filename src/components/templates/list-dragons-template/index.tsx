@@ -3,11 +3,20 @@ import { PrivateLayout, WapperDragonsComponent } from '~/components';
 
 type Props = {
   dragons: DragonsType;
+  isLoading: boolean;
   onDeleteDragon: (id: string) => void;
 };
 
-export const ListDragonsTemplate = ({ dragons, onDeleteDragon }: Props) => (
+export const ListDragonsTemplate = ({
+  dragons,
+  isLoading,
+  onDeleteDragon,
+}: Props) => (
   <PrivateLayout>
-    <WapperDragonsComponent dragons={dragons} onDeleteDragon={onDeleteDragon} />
+    <WapperDragonsComponent
+      dragons={dragons}
+      isLoading={isLoading}
+      onDeleteDragon={onDeleteDragon}
+    />
   </PrivateLayout>
 );

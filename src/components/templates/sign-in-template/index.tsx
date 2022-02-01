@@ -1,12 +1,14 @@
-import { AuthButtons, SubmitDataDTO } from '~/models';
-import { PublicLayout, MainForm } from '~/components';
-
-import styles from './sign-in-template.module.scss';
 import { MutableRefObject } from 'react';
 
+import { AuthButtons, SubmitDataDTO } from '~/models';
+import { PublicLayout, MainForm, Spinner } from '~/components';
+
+import styles from './sign-in-template.module.scss';
+
 type Props = {
-  formRef: MutableRefObject<null>;
   linkTo: string;
+  formRef: MutableRefObject<null>;
+  isLoading: boolean;
   linkText: string;
   buttonName: string;
   authButtons?: AuthButtons;
@@ -19,9 +21,10 @@ type Props = {
 };
 
 export const SignInTemplate = ({
-  formRef,
   linkTo,
+  formRef,
   linkText,
+  isLoading,
   buttonName,
   authButtons,
   buttonChildren,
@@ -40,7 +43,13 @@ export const SignInTemplate = ({
       buttonName={buttonName}
       textInputName={textInputName}
       textInputLabel={textInputLabel}
-      buttonChildren={buttonChildren}
+      buttonChildren={
+        isLoading ? (
+          <Spinner className={styles['sign-in-template__spinner']} />
+        ) : (
+          buttonChildren
+        )
+      }
       passwordInputName={passwordInputName}
       passwordInputLabel={passwordInputLabel}
       handleSubmit={handleSignIn}

@@ -6,8 +6,8 @@ import type { GetServerSideProps, NextPage } from 'next';
 
 import { useUser } from '~/hooks';
 import { SubmitDataDTO } from '~/models';
-import { SignInTemplate } from '~/components';
-import { useRef } from 'react';
+import { SignInTemplate, Spinner } from '~/components';
+import { useRef, useState } from 'react';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -28,6 +28,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 const SignInPage: NextPage = () => {
   const { login } = useUser();
   const formRef: any = useRef(null);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const signInWithGoogle = () => (
     <>
@@ -67,7 +69,9 @@ const SignInPage: NextPage = () => {
         abortEarly: false,
       });
 
-      login(data);
+      setIsLoading(true);
+      await login(data);
+      setIsLoading(false);
     } catch (err) {
       const validationErrors = {} as any;
 
@@ -83,6 +87,7 @@ const SignInPage: NextPage = () => {
   return (
     <SignInTemplate
       formRef={formRef}
+      isLoading={isLoading}
       authButtons={authButtons}
       linkTo="/sign-up"
       linkText="Criar Conta"
