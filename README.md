@@ -1,28 +1,182 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+
+
+# Dragon's Challenge
+
+![Preview-Screens](https://github.com/steniowagner/mindCast/blob/master/PUXA-R10!.png)
+
+## About this Project
+
+The idea of the App is:
+
+_"Share knowledge in the form of podcasts, providing a simple way to learn"._
+
+**PS:** Podcasts was just the context chosen by me for this project, but all the code inside this app can be reused for any app that has audio-streaming as domain, so you can reuse everything here in your next music-player, podcast-library or anything inside this context!
+
+**On the Media 🤩:** A [review](https://youtu.be/nu8mwGZUBFU) about this app (pt-BR 🇧🇷).
+
+## Why?
+
+This project is part of my personal portfolio, so, I'll be happy if you could provide me any feedback about the project, code, structure or anything that you can report that could make me a better developer!
+
+Email-me: luccasspecht70@gmail.com
+
+Connect with me at [LinkedIn](https://www.linkedin.com/in/luccas-specht/).
+
+Also, you can use this Project as you wish, be for study, be for make improvements or earn money with it!
+
+It's free!
+
+## Some Observations about this App
+
+1 - There's no functionality of Login/Register, the buttons and the forms in the Login Screen are only for UI matters.
+
+2 - The only option that works at _Settings_ screen it's toggle the Dark/Light theme, all the others are just for UI matters too.
+
+## Installers
+
+If you want to test the App in the Production mode, the installers are listed below:
+
+[Android .apk installer](https://drive.google.com/file/d/1LKgdu1WDPo8eU2NVjoB92TPi4my8QP4D/view?usp=sharing)
+
+iOS .ipa installer: Soon!
+
+## Functionalities
+
+- Choose your interests (all, technology, philosophy, science, business, pop-culture or history - it will be used to make requests in order to have a personalized app with what the user want to hear about)
+
+- Get informations about a specific Author, with his New Releases/Featured Podcats and Related Authors
+
+- Get Informations about a specific Podcast, with its description and Author
+
+- Listen and download a single podcasts to listen offline (no need to create a playlist)
+
+- Playlists
+	- Create, Edit and Remove your Playlists
+	- Download Playlists to listen when the user goes offline
+	- Undownload Playlists
+
+- Player to listen the selected podcasts and also be able to: 
+	- Shuffle Playlist
+	- Repeat Playist
+	- Repeat a single Podcast
+	- Download the current podcast
+	- Add the current Podcast to a Playlist
+	- Access the queue of next podcasts that will be played
+	- Remove podcasts from the queue
+	- Play/Pause the current Podcast
+	- Next/Previous podcast on the Playlist
+
+- Bottom Player
+	- Access the bottom player out of the Player screen in order to keep tracking the current podcast
+	- Get the Author and the Title of the current podcast
+	- Play/Pause/Forward the current podcast
+	- Track the timer of the current podcast
+
+- Discover
+	- A Dashboard with:
+	  - Trending Authors
+	  - Hottest Podcasts
+	  - New Podcasts Released
+
+- Search
+
+	- Search for Authors by name
+
+	- Get information about a certain category, showing it's featured and trending podcats, and the authors that talk about this category
+
+- Library
+	- Create Playlists, add podcasts and download it to listen offline
+
+	- Access Your Podcasts (Downloaded + Podcasts saved on your Playlists) in the form of playlist
+
+	- Access your Podcasts downloaded in the form of playlist
+	
+	- Access recently played podcasts in the form of playlist
+
+	- Change your interests
+
+- Settings
+
+	- Choose between the Dark and Light theme
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
+To run this project in the development mode, you'll need to have a basic environment to run a React-Native App, that can be found [here](https://facebook.github.io/react-native/docs/getting-started).
+
+Also, you'll need to the server running locally on your machine with the mock data. You can find the server and all the instructions to start the server [here](https://github.com/steniowagner/mindcast-server).
+
+### Installing
+
+**Cloning the Repository**
+
+```
+$ git clone https://github.com/steniowagner/mindCast
+
+$ cd mindCast
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Installing dependencies**
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```
+$ yarn
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+_or_
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```
+$ npm install
+```
 
-## Learn More
+### Connecting the App with the Server
 
-To learn more about Next.js, take a look at the following resources:
+1 - Follow the instructions on the [mindcast-server](https://github.com/steniowagner/mindcast-server) to have the server up and running on your machine.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2 - With the server up and running, go to the [/.env.development](https://github.com/steniowagner/mindCast/blob/master/.env.development) file and edit the SERVER_URL value for the IP of your machine (you can have some issues with _localhost_ if you're running on an android physical device, but you can use localhost safely on iOS).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+It should looks like this:
+
+SERVER_URL=http://**_IP_OF_YOUR_MACHINE_**:3001/mind-cast/api/v1
+
+*or*
+
+SERVER_URL=http://localhost:3001/mind-cast/api/v1
+
+### Running
+
+With all dependencies installed and the environment properly configured, you can now run the app:
+
+Android
+
+```
+$ react-native run-android
+```
+
+iOS
+
+```
+$ react-native run-ios
+```
+
+## Built With
+- [Axios](https://github.com/axios/axios) - HTTP Client
+- [ESlint](https://eslint.org/) - Linter
+- [Prettier](https://prettier.io/) - Code Formatter
+- [Babel](https://babeljs.io/) - JavaScript Compiler
+
+
+## Contributing
+
+You can send how many PR's do you want, I'll be glad to analyse and accept them! And if you have any question about the project...
+
+Email-me: luccasspecht70@gmail.com
+
+Connect with me at [LinkedIn](https://www.linkedin.com/in/luccas-specht/)
+
+Thank you!
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/steniowagner/mindCast/blob/master/LICENSE) file for details
