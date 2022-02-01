@@ -1,19 +1,19 @@
+import Link from 'next/link';
 import Image from 'next/image';
-import { FcEmptyTrash } from 'react-icons/fc';
-import { GrUpdate } from 'react-icons/gr';
+import { useState } from 'react';
+import classnames from 'classnames';
+import { IoIosArrowDown } from 'react-icons/io';
 
 import { DragonType } from '~/models';
 import { DragonCardLine } from '~/components';
 
 import styles from './dragon-card.module.scss';
 
-import defaultDragonImage from '../../../../public/images/default-dragon-image.jpg';
-import Link from 'next/link';
-
 type DragonTypeNonHistories = Omit<DragonType, 'histories'>;
 
 type Props = DragonTypeNonHistories & {
   onDeleteDragon: (id: string) => void;
+  avatar: StaticImageData;
 };
 
 export const DragonCard = ({
@@ -21,21 +21,39 @@ export const DragonCard = ({
   name,
   type,
   createdAt,
+  avatar,
   onDeleteDragon,
-}: Props) => (
-  <main className={styles.card}>
-    <Image src={defaultDragonImage} alt={`Dragão-${name}`} />
-    <DragonCardLine name={name} type={type} createdAt={createdAt} />
-    <FcEmptyTrash
-      onClick={() => {
-        onDeleteDragon(id);
-      }}
-    />
-    <Link href={`/update-dragon/${id}`}>
-      <a>edit</a>
-    </Link>
-    <Link href={`/dragon-details/${id}`}>
-      <a>detalhes</a>
-    </Link>
-  </main>
-);
+}: Props) => {
+  const [isShowingLinks, setIsShowingLinks] = useState(false);
+
+  const handleIsShowingLinks = () =>
+    setIsShowingLinks(isShowingLinks ? false : true);
+
+  return (
+    <main className={styles['card']}>
+      <Image src={avatar} alt={`dragão: ${name}`} />
+      <DragonCardLine name={name} type={type} createdAt={createdAt} />
+      <button
+        type="button"
+        onClick={handleIsShowingLinks}
+        className={classnames(
+          styles['card__show-inks'],
+          isShowingLinks && styles['card__show-inks--is-showing']
+        )}
+      >
+        <IoIosArrowDown size={23} />
+      </button>
+      {isShowingLinks && (
+        <footer className={styles['card__footer']}>
+          <Link href={`/dragon-details/${id}`}>
+            <a>Detalhe</a>
+          </Link>
+          <Link href={`/update-dragon/${id}`}>
+            <a>Editar</a>
+          </Link>
+          <button onClick={() => onDeleteDragon(id)}>Deletar</button>
+        </footer>
+      )}
+    </main>
+  );
+};

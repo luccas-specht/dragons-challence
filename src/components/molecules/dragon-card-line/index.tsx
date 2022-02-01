@@ -16,18 +16,19 @@ export const DragonCardLine = ({ name, type, createdAt }: Props) => {
   ) => (property && property.length > 0 ? property : defaultProperty);
 
   return (
-    <aside className={styles['line']}>
-      <h3 className={styles['line--title']}>
-        {shouldRenderOriginalPropertyOrDefaultProperty(name, 'Alkapone')}
-      </h3>
+    <div className={styles['line']}>
+      <Text
+        className={styles['line--title']}
+        value={shouldRenderOriginalPropertyOrDefaultProperty(name, 'Alkapone')}
+      />
       <Text
         value={shouldRenderOriginalPropertyOrDefaultProperty(type, 'Fogo')}
-        className={styles['line--text']}
+        className={styles['line--type']}
       />
       <Text
         value={formatDate(createdAt, 'DD/MM')}
-        className={styles['line--text']}
+        className={styles['line--created']}
       />
-    </aside>
+    </div>
   );
 };

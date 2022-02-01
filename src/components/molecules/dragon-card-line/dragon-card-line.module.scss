@@ -1,20 +1,30 @@
 .line {
-  color: $secondary-white;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
   letter-spacing: 0.5px;
+  width: 90%;
+  border-top: 0.5px solid #a8a8b3;
+  align-self: center;
+  font-size: 18px;
 
   &--title {
-    margin: 0;
+    color: $primary-blue;
+    font-weight: bold;
+    word-break: break-word;
+    margin: 20px 10px 0 10px;
   }
 
-  &--text {
-    color: $primary-green;
-    background-color: $secondary-background-card;
-    border-radius: 3px;
+  &--type {
+    color: red;
     font-weight: bold;
-    padding: 0.25rem 0.5rem;
+    word-break: break-word;
+    margin: 20px 10px 0 10px;
+  }
+
+  &--created {
+    color: green;
+    font-weight: bold;
+    margin: 20px 10px 0 10px;
   }
 }

@@ -1,4 +1,5 @@
 import { DragonsType } from '~/models';
+import { getARandomDragonAvatar } from '~/utils';
 import { DragonCard, FloatingLink } from '~/components';
 
 import styles from './wapper-dragons-component.module.scss';
@@ -21,6 +22,7 @@ export const WapperDragonsComponent = ({
         key={id}
         name={name}
         type={type}
+        avatar={getARandomDragonAvatar()}
         createdAt={createdAt}
         onDeleteDragon={onDeleteDragon}
       />

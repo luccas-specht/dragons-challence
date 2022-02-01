@@ -9,29 +9,6 @@
   padding: 3rem;
   box-shadow: 0 4px 5px $quarterly-black;
 
-  &__title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    flex-wrap: wrap;
-
-    h1 {
-      color: $quinquennial-black;
-      font-size: 30px;
-      text-align: center;
-      word-break: break-word;
-      margin: 0;
-    }
-
-    span {
-      text-align: end;
-      color: $quarterly-gray;
-      margin-left: 20px;
-      font-size: 20px;
-    }
-  }
-
   &__main {
     display: flex;
     align-items: center;
@@ -42,35 +19,6 @@
 
     @media (max-width: 767px) {
       flex-wrap: wrap;
-    }
-
-    &__wrapper-info {
-      display: flex;
-      align-items: flex-start;
-      flex-direction: column;
-      height: 100%;
-      width: 50%;
-
-      article {
-        margin-top: 10px;
-      }
-
-      &--title {
-        color: $primary-blue;
-        font-weight: 700;
-        font-size: 18px;
-        margin-bottom: 10px;
-      }
-
-      &--histories {
-        font-size: 18px;
-        line-height: 23.4px;
-        color: $tertiary-gray;
-        text-align: start;
-        max-width: 440px;
-        padding-bottom: 30px;
-        word-break: break-word;
-      }
     }
   }
 }
