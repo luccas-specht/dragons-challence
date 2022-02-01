@@ -1,7 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import classNames from 'classnames';
 import { useField } from '@unform/core';
+import React, { useRef, useEffect } from 'react';
 
 import { GenericInputProps } from '../../models';
+import { TooltipAlert } from '~/components';
 
 import styles from './text-input.module.scss';
 
@@ -14,6 +16,8 @@ export const TextInput = ({
   const inputRef = useRef(null);
   const { fieldName, defaultValue = '', registerField, error } = useField(name);
 
+  const renderError = () => !!error && <TooltipAlert messageError={error} />;
+
   useEffect(() => {
     registerField({
       name: fieldName,
@@ -23,19 +27,24 @@ export const TextInput = ({
       clearValue: (ref) => (ref.current.value = ''),
     });
   }, [fieldName, registerField]);
+
   return (
     <div className={styles['text-input']}>
-      <label htmlFor={name}>
+      <label htmlFor={name} className={styles['text-input__label']}>
         {`${placeholder}:`}
         <input
           type={type}
           ref={inputRef}
           defaultValue={defaultValue}
           placeholder={placeholder}
+          className={classNames(
+            styles['text-input__input'],
+            !!error && styles['text-input__input--error']
+          )}
           {...rest}
         />
       </label>
-      {error && <span>{error}</span>}
+      {renderError()}
     </div>
   );
 };
