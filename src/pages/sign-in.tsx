@@ -1,13 +1,13 @@
-import { useCallback } from 'react';
-import { parseCookies } from 'nookies';
-import type { GetServerSideProps, NextPage } from 'next';
-
+import * as Yup from 'yup';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
+import { parseCookies } from 'nookies';
+import type { GetServerSideProps, NextPage } from 'next';
 
 import { useUser } from '~/hooks';
 import { SubmitDataDTO } from '~/models';
 import { SignInTemplate } from '~/components';
+import { useRef } from 'react';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -27,6 +27,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 const SignInPage: NextPage = () => {
   const { login } = useUser();
+  const formRef: any = useRef(null);
 
   const signInWithGoogle = () => (
     <>
@@ -53,13 +54,35 @@ const SignInPage: NextPage = () => {
     },
   ];
 
-  const handleSignIn = useCallback(
-    async (data: SubmitDataDTO) => await login(data),
-    [login]
-  );
+  const handleSignIn = async (data: SubmitDataDTO) => {
+    try {
+      formRef.current.setErrors({});
+
+      const schema = Yup.object().shape({
+        nickname: Yup.string().min(10).required(),
+        password: Yup.string().min(6).required(),
+      });
+
+      await schema.validate(data, {
+        abortEarly: false,
+      });
+
+      login(data);
+    } catch (err) {
+      const validationErrors = {} as any;
+
+      if (err instanceof Yup.ValidationError) {
+        err.inner.forEach((error) => {
+          if (error.path) validationErrors[error.path] = error.message;
+        });
+        formRef.current.setErrors(validationErrors);
+      }
+    }
+  };
 
   return (
     <SignInTemplate
+      formRef={formRef}
       authButtons={authButtons}
       linkTo="/sign-up"
       linkText="Criar Conta"

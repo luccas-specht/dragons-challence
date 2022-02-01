@@ -2,8 +2,10 @@ import { AuthButtons, SubmitDataDTO } from '~/models';
 import { PublicLayout, MainForm } from '~/components';
 
 import styles from './sign-in-template.module.scss';
+import { MutableRefObject } from 'react';
 
 type Props = {
+  formRef: MutableRefObject<null>;
   linkTo: string;
   linkText: string;
   buttonName: string;
@@ -17,6 +19,7 @@ type Props = {
 };
 
 export const SignInTemplate = ({
+  formRef,
   linkTo,
   linkText,
   buttonName,
@@ -30,6 +33,7 @@ export const SignInTemplate = ({
 }: Props) => (
   <PublicLayout className={styles['sign-in-template']}>
     <MainForm
+      formRef={formRef}
       authButtons={authButtons}
       linkTo={linkTo}
       linkText={linkText}

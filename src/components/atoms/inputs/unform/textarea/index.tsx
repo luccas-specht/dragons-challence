@@ -7,7 +7,7 @@ import styles from './textarea.module.scss';
 
 export const Textarea = ({ name, placeholder, ...rest }: GenericInputProps) => {
   const inputRef = useRef(null);
-  const { fieldName, defaultValue = '', registerField } = useField(name);
+  const { fieldName, defaultValue = '', registerField, error } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -30,6 +30,7 @@ export const Textarea = ({ name, placeholder, ...rest }: GenericInputProps) => {
           {...rest}
         />
       </label>
+      {error && <span>{error}</span>}
     </div>
   );
 };

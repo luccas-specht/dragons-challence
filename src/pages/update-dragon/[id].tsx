@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import * as Yup from 'yup';
 import { parseCookies } from 'nookies';
-import type { GetServerSideProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { useEffect, useRef, useState } from 'react';
+import type { GetServerSideProps, NextPage } from 'next';
 
 import { UpdateDragonTemplate } from '~/components';
 import { useGetDragonDetails, useUpdateDragon } from '~/hooks';
@@ -43,6 +44,36 @@ const UpdateDragonPage: NextPage = () => {
     formRef?.current?.reset();
   };
 
+  const handleSubmitUpdateDragon = async (dragon: UpdateDragonDTO) => {
+    try {
+      formRef.current.setErrors({});
+
+      const schema = Yup.object().shape({
+        name: Yup.string().min(6).required(),
+        type: Yup.string().min(6).required(),
+        histories: Yup.string().min(6).required(),
+      });
+
+      await schema.validate(dragon, {
+        abortEarly: false,
+      });
+
+      const { data, error } = await doCallUpdateDetails(String(id), dragon);
+
+      // adicionar toast
+      !error && data ? resetForm() : alert('bah cpx, nem te conto...');
+    } catch (err) {
+      const validationErrors = {} as any;
+
+      if (err instanceof Yup.ValidationError) {
+        err.inner.forEach((error) => {
+          if (error.path) validationErrors[error.path] = error.message;
+        });
+        formRef.current.setErrors(validationErrors);
+      }
+    }
+  };
+
   const getDragonDetails = async () => {
     const { data, error } = await doCallDragonDetails(String(id));
     if (!error && data) {
@@ -59,19 +90,6 @@ const UpdateDragonPage: NextPage = () => {
   useEffect(() => {
     getDragonDetails();
   }, []);
-
-  const handleSubmitUpdateDragon = useCallback(
-    async (dragon: UpdateDragonDTO) => {
-      const { data, error } = await doCallUpdateDetails(String(id), dragon);
-      /* TODO: colocar toast */
-      if (!error && data) {
-        resetForm();
-      } else {
-        alert('bah cpx, nem te conto...');
-      }
-    },
-    [doCallUpdateDetails]
-  );
 
   return (
     <UpdateDragonTemplate

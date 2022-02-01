@@ -2,8 +2,10 @@ import { SubmitDataDTO } from '~/models';
 import { MainForm, PublicLayout } from '~/components';
 
 import styles from './sign-up-template.module.scss';
+import { MutableRefObject } from 'react';
 
 type Props = {
+  formRef: MutableRefObject<null>;
   linkTo: string;
   linkText: string;
   buttonName: string;
@@ -16,6 +18,7 @@ type Props = {
 };
 
 export const SignUpTemplate = ({
+  formRef,
   linkTo,
   linkText,
   buttonName,
@@ -28,6 +31,7 @@ export const SignUpTemplate = ({
 }: Props) => (
   <PublicLayout className={styles['sign-up-template']}>
     <MainForm
+      formRef={formRef}
       linkTo={linkTo}
       linkText={linkText}
       buttonName={buttonName}

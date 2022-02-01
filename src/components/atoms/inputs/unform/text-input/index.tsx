@@ -12,7 +12,7 @@ export const TextInput = ({
   ...rest
 }: GenericInputProps) => {
   const inputRef = useRef(null);
-  const { fieldName, defaultValue = '', registerField } = useField(name);
+  const { fieldName, defaultValue = '', registerField, error } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -35,6 +35,7 @@ export const TextInput = ({
           {...rest}
         />
       </label>
+      {error && <span>{error}</span>}
     </div>
   );
 };

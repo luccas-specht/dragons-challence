@@ -11,8 +11,10 @@ import {
 } from '~/components';
 
 import styles from './main-form.module.scss';
+import { MutableRefObject } from 'react';
 
 type Props = {
+  formRef: MutableRefObject<null>;
   linkTo: string;
   linkText: string;
   buttonName: string;
@@ -26,6 +28,7 @@ type Props = {
 };
 
 export const MainForm = ({
+  formRef,
   linkTo,
   linkText,
   buttonName,
@@ -50,7 +53,11 @@ export const MainForm = ({
     <div className={styles['container-main']}>
       <Banner />
       {renderWrapperAuthButtons()}
-      <Form onSubmit={handleSubmit} className={styles['container-main__form']}>
+      <Form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className={styles['container-main__form']}
+      >
         <TextInput name={textInputName} placeholder={textInputLabel} />
         <TextInput
           type="password"

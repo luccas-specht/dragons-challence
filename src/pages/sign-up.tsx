@@ -1,11 +1,12 @@
+import * as Yup from 'yup';
+import { useRef } from 'react';
 import Router from 'next/router';
-import { useCallback } from 'react';
 import { parseCookies } from 'nookies';
 import type { GetServerSideProps, NextPage } from 'next';
 
 import { useCreateUser } from '~/hooks';
-import { SignUpTemplate } from '~/components';
 import { SubmitDataDTO } from '~/models';
+import { SignUpTemplate } from '~/components';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -25,25 +26,45 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 const SignUpPage: NextPage = () => {
   const { callAPI } = useCreateUser();
+  const formRef: any = useRef(null);
 
-  const handleSignUp = useCallback(
-    async (data: SubmitDataDTO) => {
+  const handleSignUp = async (data: SubmitDataDTO) => {
+    try {
+      formRef.current.setErrors({});
+
+      const schema = Yup.object().shape({
+        nickname: Yup.string().min(10).required(),
+        password: Yup.string().min(6).required(),
+      });
+
+      await schema.validate(data, {
+        abortEarly: false,
+      });
       await callAPI(data);
       Router.push('/sign-in');
-    },
-    [callAPI]
-  );
+    } catch (err) {
+      const validationErrors = {} as any;
+
+      if (err instanceof Yup.ValidationError) {
+        err.inner.forEach((error) => {
+          if (error.path) validationErrors[error.path] = error.message;
+        });
+        formRef.current.setErrors(validationErrors);
+      }
+    }
+  };
 
   return (
     <SignUpTemplate
+      formRef={formRef}
       linkTo="/sign-in"
       linkText="Fazer login"
       buttonName="sign-up-button"
-      textInputName="sing-up-text-input"
+      textInputName="nickname"
       buttonChildren="Cadastrar"
       textInputLabel="Usuário ou apelido"
       passwordInputLabel="Senha"
-      passwordInputName="sing-up-password-input"
+      passwordInputName="password"
       handleSignUp={handleSignUp}
     />
   );
