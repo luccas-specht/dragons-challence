@@ -1,9 +1,11 @@
-import { useState, ReactNode, createContext, useEffect } from 'react';
-import { setCookie, parseCookies, destroyCookie } from 'nookies';
 import Router from 'next/router';
+import { setCookie, parseCookies, destroyCookie } from 'nookies';
+import { useState, ReactNode, createContext, useEffect } from 'react';
 
 import { useSignInRequest } from '~/hooks';
 import { LoggedInUser, SubmitDataDTO, LoggedInUserContextData } from '~/models';
+
+import userAvatar from '../../public/images/this-person-does-not-exists.jpg';
 
 type UserProviderData = {
   children: ReactNode;
@@ -21,24 +23,20 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
   const [user, setUser] = useState<LoggedInUser | null>(null);
 
   useEffect(() => {
-    () => {
-      const { '@dragonsChallenge.loggedInUser': user } = parseCookies();
+    const { '@dragonsChallenge.token': token } = parseCookies();
 
-      if (!!user && Object.values(user).length > 0) {
-        setIsAuthenticated(true);
-        return JSON.parse(user);
-      }
-      return null;
-    };
+    if (token) {
+      setUser({
+        nickname: 'Luccas Specht',
+        avatarUrl: userAvatar,
+      });
+    }
   }, []);
 
   const login = async (data: SubmitDataDTO) => {
     const { token, user } = await call(data);
 
     setCookie(undefined, '@dragonsChallenge.token', token, {
-      maxAge: cookieExpiriesInTwoHours,
-    });
-    setCookie(undefined, '@dragonsChallenge.loggedInUser', `${user.nickname}`, {
       maxAge: cookieExpiriesInTwoHours,
     });
 
@@ -51,15 +49,8 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
     setUser(null);
     setIsAuthenticated(false);
     destroyCookie({}, '@dragonsChallenge.token');
-    destroyCookie({}, '@dragonsChallenge.loggedInUser');
     Router.push('/sign-in');
   };
-
-  /* const getNickname = () => {
-    const { '@dragonsChallenge.loggedInUser': user } = parseCookies();
-
-    return user.nickname;
-  }; */
 
   return (
     <LoggedInUserContext.Provider

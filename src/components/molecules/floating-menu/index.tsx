@@ -22,7 +22,7 @@ export const FloatingMenu = ({
 }: Props) => {
   const showMenu = () =>
     navegations.map(({ id, name, redirectTo, onRedirect = () => {} }) => (
-      <Link key={id} href={redirectTo} passHref>
+      <Link key={id} href={redirectTo}>
         <a onClick={onRedirect}>{name}</a>
       </Link>
     ));

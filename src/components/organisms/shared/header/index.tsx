@@ -10,7 +10,7 @@ import styles from './header.module.scss';
 
 type Props = {
   nickname: string;
-  userAvatar?: string | StaticImageData;
+  userAvatar?: StaticImageData;
   navegations: Navegations;
 };
 

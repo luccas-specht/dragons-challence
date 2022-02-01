@@ -1,6 +1,6 @@
 export type LoggedInUser = {
   nickname: string;
-  avatarUrl: string;
+  avatarUrl: StaticImageData;
 } | null;
 
 export type AuthResponse = {

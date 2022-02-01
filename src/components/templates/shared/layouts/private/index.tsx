@@ -14,7 +14,7 @@ type Props = {
 };
 
 export const PrivateLayout = ({ className = '', children }: Props) => {
-  const { logOut } = useUser();
+  const { user, logOut } = useUser();
   const { asPath } = useRouter();
 
   const navegations: Navegations = [
@@ -45,7 +45,11 @@ export const PrivateLayout = ({ className = '', children }: Props) => {
 
   return (
     <>
-      <Header nickname={'Luccas Specht'} navegations={navegationsToShow} />
+      <Header
+        nickname={user?.nickname ?? ''}
+        userAvatar={user?.avatarUrl}
+        navegations={navegationsToShow}
+      />
       <div className={classNames(styles.container, className)}>{children}</div>
     </>
   );
