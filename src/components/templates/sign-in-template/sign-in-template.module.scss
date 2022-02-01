@@ -1,0 +1,29 @@
+.sign-in-template {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &__spinner {
+    width: 100%;
+
+    &::before,
+    &::after {
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+    }
+
+    &::before {
+      border-color: $primary-blue;
+      border-right-color: transparent;
+      animation-duration: 2s;
+    }
+
+    &::after {
+      border-color: $primary-white;
+      border-left-color: transparent;
+    }
+  }
+}

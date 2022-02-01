@@ -1,0 +1,36 @@
+.spinner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &::before,
+  &::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    border-style: solid;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+  }
+
+  &::before {
+    border-color: $primary-blue;
+    border-right-color: transparent;
+    animation-duration: 2s;
+  }
+
+  &::after {
+    border-color: $primary-gray;
+    border-left-color: transparent;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

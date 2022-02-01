@@ -1,0 +1,38 @@
+.button {
+  height: 45px;
+  width: 100%;
+  min-width: 250px;
+  margin-top: 10px;
+  border-radius: 25px;
+  line-height: 17px;
+
+  &__styles {
+    &--primary {
+      color: $primary-white;
+      background-color: $primary-blue;
+      font-weight: bold;
+      font-size: 12px;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: darken($primary-blue, 5%);
+      }
+    }
+
+    &--secondary {
+      font-size: 14px;
+      line-height: 17px;
+      color: $primary-gray;
+      border: 1.5px solid $secondary-gray;
+      background-color: $primary-white;
+
+      &:hover {
+        background-color: darken($primary-white, 5%);
+      }
+    }
+  }
+
+  & + button {
+    margin-top: 10px;
+  }
+}

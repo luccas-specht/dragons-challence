@@ -1,0 +1,54 @@
+.floating-menu {
+  &__icon {
+    svg {
+      width: 20px;
+      height: 20px;
+      color: $primary-blue;
+      cursor: pointer;
+    }
+  }
+
+  &__navegation {
+    position: absolute;
+    top: 55px;
+    right: 0px;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    box-shadow: 0 4px 5px $secondary-black;
+    transition: 0.2s all linear;
+    border-radius: 5px;
+    z-index: 200;
+    margin-top: 20px;
+
+    @media (max-width: 280px) {
+      margin-right: 10px;
+    }
+
+    a {
+      width: 186px;
+      height: 50px;
+      border-radius: 0;
+      padding-left: 16px;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 21px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: $tertiary-black;
+      background-color: $primary-background-color;
+      cursor: pointer;
+
+      &:hover {
+        color: $primary-white;
+        background-color: $tertiary-black;
+      }
+    }
+
+    &--open {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

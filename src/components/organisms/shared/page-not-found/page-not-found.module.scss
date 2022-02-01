@@ -1,0 +1,44 @@
+.page-not-found {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 100px;
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-top: 50px;
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      &--title {
+        color: $primary-blue;
+        font-weight: bold;
+        font-size: 20px;
+        text-transform: uppercase;
+      }
+
+      &--description {
+        font-size: 18px;
+        line-height: 23.4px;
+        color: #4f4f4f;
+        text-align: start;
+        max-width: 440px;
+        margin-top: 20px;
+        padding-bottom: 30px;
+      }
+    }
+  }
+
+  &__link {
+    font-weight: bold;
+    font-size: 15px;
+    text-align: start;
+    color: #828282;
+  }
+}

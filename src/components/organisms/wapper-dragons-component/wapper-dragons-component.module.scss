@@ -1,0 +1,19 @@
+.wrapper-dragons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  position: relative;
+  padding: 55px 0;
+
+  &__spinner {
+    min-height: 500px;
+    width: 100%;
+
+    &::before,
+    &::after {
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.container-details {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 800px;
+  padding: 3rem;
+  box-shadow: 0 4px 5px $quarterly-black;
+
+  &__main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 250px;
+    flex-wrap: nowrap;
+    width: 100%;
+
+    @media (max-width: 767px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__spinner {
+    min-height: 300px;
+    width: 100%;
+
+    &::before,
+    &::after {
+      width: 70px;
+      height: 70px;
+      border-radius: 100%;
+    }
+  }
+}
