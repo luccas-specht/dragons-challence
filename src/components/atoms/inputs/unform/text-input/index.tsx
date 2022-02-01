@@ -7,6 +7,7 @@ import styles from './text-input.module.scss';
 
 export const TextInput = ({
   name,
+  type,
   placeholder,
   ...rest
 }: GenericInputProps) => {
@@ -27,7 +28,7 @@ export const TextInput = ({
       <label htmlFor={name}>
         {`${placeholder}:`}
         <input
-          type="text"
+          type={type}
           ref={inputRef}
           defaultValue={defaultValue}
           placeholder={placeholder}

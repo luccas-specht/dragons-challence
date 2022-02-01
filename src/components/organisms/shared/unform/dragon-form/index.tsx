@@ -1,7 +1,7 @@
 import { MutableRefObject } from 'react';
 import { Form } from '@unform/web';
 
-import { Button, Text, TextInput } from '~/components';
+import { Button, Text, Textarea, TextInput } from '~/components';
 import { CreateDragonDTO, InitialValuesUpdateDragonForm } from '~/models';
 
 import styles from './dragon-form.module.scss';
@@ -54,7 +54,7 @@ export const DragonForm = ({
           name={textInputDragonType}
           placeholder={textInputLabelDragonType}
         />
-        <TextInput
+        <Textarea
           name={textInputDragonHistory}
           placeholder={textInputLabelDragonHistory}
         />

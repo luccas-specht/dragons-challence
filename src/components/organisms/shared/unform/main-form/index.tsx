@@ -5,7 +5,6 @@ import { AuthButtons, SubmitDataDTO } from '~/models';
 import {
   Text,
   Button,
-  PasswordInput,
   TextInput,
   WrapperAuthButtons,
   Banner,
@@ -53,7 +52,8 @@ export const MainForm = ({
       {renderWrapperAuthButtons()}
       <Form onSubmit={handleSubmit} className={styles['container-main__form']}>
         <TextInput name={textInputName} placeholder={textInputLabel} />
-        <PasswordInput
+        <TextInput
+          type="password"
           name={passwordInputName}
           placeholder={passwordInputLabel}
         />

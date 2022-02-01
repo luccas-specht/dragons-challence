@@ -3,13 +3,9 @@ import React, { useEffect, useRef } from 'react';
 
 import { GenericInputProps } from '../../models';
 
-import styles from './password-input.module.scss';
+import styles from './textarea.module.scss';
 
-export const PasswordInput = ({
-  name,
-  placeholder,
-  ...rest
-}: GenericInputProps) => {
+export const Textarea = ({ name, placeholder, ...rest }: GenericInputProps) => {
   const inputRef = useRef(null);
   const { fieldName, defaultValue = '', registerField } = useField(name);
 
@@ -24,11 +20,10 @@ export const PasswordInput = ({
   }, [fieldName, registerField]);
 
   return (
-    <div className={styles['password-input']}>
+    <div className={styles['textarea']}>
       <label htmlFor={name}>
         {`${placeholder}:`}
-        <input
-          type="password"
+        <textarea
           ref={inputRef}
           defaultValue={defaultValue}
           placeholder={placeholder}
