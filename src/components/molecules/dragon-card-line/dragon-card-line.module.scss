@@ -13,17 +13,25 @@
     font-weight: bold;
     word-break: break-word;
     margin: 20px 10px 0 10px;
+    white-space: nowrap;
+    min-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &--type {
-    color: red;
+    color: #fd7d24;
     font-weight: bold;
     word-break: break-word;
     margin: 20px 10px 0 10px;
+    white-space: nowrap;
+    min-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &--created {
-    color: green;
+    color: #9bcc50;
     font-weight: bold;
     margin: 20px 10px 0 10px;
   }
