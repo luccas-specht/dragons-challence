@@ -5,16 +5,15 @@
   bottom: 0;
   width: 64px;
   height: 64px;
-  background: #2d9cdb;
+  background: $primary-blue;
   border-radius: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: background-color 0.2s;
 
   svg {
     height: 30px;
     width: 30px;
-    color: #fff;
+    color: $primary-white;
   }
 }

@@ -1,1 +1,1 @@
-export * from './generic-input';
+export type { GenericInputProps } from './generic-input';

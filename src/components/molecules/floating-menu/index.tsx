@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import classnames from 'classnames';
-import OutsideClickHandler from 'react-outside-click-handler';
 import { GiHamburgerMenu } from 'react-icons/gi';
+import OutsideClickHandler from 'react-outside-click-handler';
 
 import { Navegations } from '~/models';
 
