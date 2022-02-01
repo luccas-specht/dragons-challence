@@ -57,7 +57,7 @@ $ npm install
 ```
 
 
-## Built With
+## Built with
 - [Axios](https://github.com/axios/axios) - HTTP Client
 - [ESlint](https://eslint.org/) - Linter
 - [Prettier](https://prettier.io/) - Code Formatter
