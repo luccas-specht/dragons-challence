@@ -7,6 +7,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 import { useCreateUser } from '~/hooks';
 import { SubmitDataDTO } from '~/models';
 import { SignUpTemplate } from '~/components';
+import { mainFormSchema } from '~/validations';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -30,22 +31,21 @@ const SignUpPage: NextPage = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  const doCallAPI = async (data: SubmitDataDTO) => {
+    setIsLoading(true);
+    await callAPI(data);
+    setIsLoading(false);
+  };
+
   const handleSignUp = async (data: SubmitDataDTO) => {
     try {
       formRef.current.setErrors({});
 
-      const schema = Yup.object().shape({
-        nickname: Yup.string().min(10).required(),
-        password: Yup.string().min(6).required(),
-      });
-
-      await schema.validate(data, {
+      await mainFormSchema.validate(data, {
         abortEarly: false,
       });
 
-      setIsLoading(true);
-      await callAPI(data);
-      setIsLoading(false);
+      doCallAPI(data);
       Router.push('/sign-in');
     } catch (err) {
       const validationErrors = {} as any;

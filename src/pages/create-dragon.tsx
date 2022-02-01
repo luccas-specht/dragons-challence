@@ -1,10 +1,11 @@
 import * as Yup from 'yup';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { parseCookies } from 'nookies';
 import type { GetServerSideProps, NextPage } from 'next';
 
 import { CreateDragonDTO } from '~/models';
 import { useCreateDragon } from '~/hooks';
+import { dragonFormSchema } from '~/validations';
 import { CreateDragonTemplate } from '~/components';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
@@ -27,28 +28,34 @@ const CreateDragonPage: NextPage = () => {
   const { call } = useCreateDragon();
   const formRef: any = useRef(null);
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const resetForm = () => {
     formRef?.current?.reset();
+  };
+
+  const doCallAPI = async (dragon: CreateDragonDTO) => {
+    setIsLoading(true);
+    const { data, error } = await call(dragon);
+
+    /* TODO: colocar toast */
+    if (!error && data) {
+      resetForm();
+    } else {
+      alert('bah cpx, nem te conto...');
+    }
+    setIsLoading(false);
   };
 
   const handleSubmitCreateDragon = async (dragon: CreateDragonDTO) => {
     try {
       formRef.current.setErrors({});
 
-      const schema = Yup.object().shape({
-        name: Yup.string().min(6).required(),
-        type: Yup.string().min(6).required(),
-        histories: Yup.string().min(6).required(),
-      });
-
-      await schema.validate(dragon, {
+      await dragonFormSchema.validate(dragon, {
         abortEarly: false,
       });
 
-      const { data, error } = await call(dragon);
-
-      /* TODO: colocar toast */
-      !error && data ? resetForm() : alert('bah cpx, nem te conto...');
+      doCallAPI(dragon);
     } catch (err) {
       const validationErrors = {} as any;
 
@@ -64,6 +71,7 @@ const CreateDragonPage: NextPage = () => {
   return (
     <CreateDragonTemplate
       formRef={formRef}
+      isLoading={isLoading}
       buttonName="sign-in-button"
       buttonChildren="Criar"
       textInputDragonName="name"

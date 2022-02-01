@@ -1,13 +1,14 @@
 import { MutableRefObject } from 'react';
 
 import { CreateDragonDTO } from '~/models';
-import { PrivateLayout, DragonForm } from '~/components';
+import { Spinner, DragonForm, PrivateLayout } from '~/components';
 
 import styles from './create-dragon-template.module.scss';
 
 type Props = {
   formRef: MutableRefObject<null>;
   buttonName: string;
+  isLoading: boolean;
   buttonChildren: string | JSX.Element;
   textInputDragonName: string;
   textInputLabelDragonName: string;
@@ -21,6 +22,7 @@ type Props = {
 export const CreateDragonTemplate = ({
   formRef,
   buttonName,
+  isLoading,
   buttonChildren,
   textInputDragonName,
   textInputLabelDragonName,
@@ -34,7 +36,13 @@ export const CreateDragonTemplate = ({
     <DragonForm
       formRef={formRef}
       buttonName={buttonName}
-      buttonChildren={buttonChildren}
+      buttonChildren={
+        isLoading ? (
+          <Spinner className={styles['create-dragon-template__spinner']} />
+        ) : (
+          buttonChildren
+        )
+      }
       textInputDragonName={textInputDragonName}
       textInputLabelDragonName={textInputLabelDragonName}
       textInputDragonType={textInputDragonType}

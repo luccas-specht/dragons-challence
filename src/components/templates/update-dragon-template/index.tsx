@@ -1,6 +1,6 @@
 import { MutableRefObject } from 'react';
 
-import { PrivateLayout, DragonForm } from '~/components';
+import { PrivateLayout, DragonForm, Spinner } from '~/components';
 import { InitialValuesUpdateDragonForm, UpdateDragonDTO } from '~/models';
 
 import styles from './update-dragon-template.module.scss';
@@ -8,6 +8,7 @@ import styles from './update-dragon-template.module.scss';
 type Props = {
   formRef: MutableRefObject<null>;
   buttonName: string;
+  isLoading: boolean;
   initalValues: InitialValuesUpdateDragonForm;
   buttonChildren: string | JSX.Element;
   textInputDragonName: string;
@@ -22,6 +23,7 @@ type Props = {
 export const UpdateDragonTemplate = ({
   formRef,
   buttonName,
+  isLoading,
   initalValues,
   buttonChildren,
   textInputDragonName,
@@ -38,7 +40,13 @@ export const UpdateDragonTemplate = ({
       formRef={formRef}
       buttonName={buttonName}
       initalValues={initalValues}
-      buttonChildren={buttonChildren}
+      buttonChildren={
+        isLoading ? (
+          <Spinner className={styles['update-dragon-template__spinner']} />
+        ) : (
+          buttonChildren
+        )
+      }
       textInputDragonName={textInputDragonName}
       textInputLabelDragonName={textInputLabelDragonName}
       textInputDragonType={textInputDragonType}

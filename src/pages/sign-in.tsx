@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import { useRef, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import { parseCookies } from 'nookies';
@@ -6,8 +7,8 @@ import type { GetServerSideProps, NextPage } from 'next';
 
 import { useUser } from '~/hooks';
 import { SubmitDataDTO } from '~/models';
-import { SignInTemplate, Spinner } from '~/components';
-import { useRef, useState } from 'react';
+import { SignInTemplate } from '~/components';
+import { mainFormSchema } from '~/validations';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -56,29 +57,28 @@ const SignInPage: NextPage = () => {
     },
   ];
 
+  const doCallAPI = async (data: SubmitDataDTO) => {
+    setIsLoading(true);
+    await login(data);
+    setIsLoading(false);
+  };
+
   const handleSignIn = async (data: SubmitDataDTO) => {
     try {
       formRef.current.setErrors({});
 
-      const schema = Yup.object().shape({
-        nickname: Yup.string().min(10).required(),
-        password: Yup.string().min(6).required(),
-      });
-
-      await schema.validate(data, {
+      await mainFormSchema.validate(data, {
         abortEarly: false,
       });
 
-      setIsLoading(true);
-      await login(data);
-      setIsLoading(false);
+      doCallAPI(data);
     } catch (err) {
       const validationErrors = {} as any;
-
       if (err instanceof Yup.ValidationError) {
         err.inner.forEach((error) => {
           if (error.path) validationErrors[error.path] = error.message;
         });
+
         formRef.current.setErrors(validationErrors);
       }
     }

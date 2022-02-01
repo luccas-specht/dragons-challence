@@ -7,6 +7,7 @@ import type { GetServerSideProps, NextPage } from 'next';
 import { UpdateDragonTemplate } from '~/components';
 import { useGetDragonDetails, useUpdateDragon } from '~/hooks';
 import { InitialValuesUpdateDragonForm, UpdateDragonDTO } from '~/models';
+import { dragonFormSchema } from '~/validations';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -33,6 +34,7 @@ const UpdateDragonPage: NextPage = () => {
   const { call: doCallDragonDetails } = useGetDragonDetails();
   const formRef: any = useRef(null);
 
+  const [isLoading, setIsLoading] = useState(false);
   const [initalValues, setInitialValues] =
     useState<InitialValuesUpdateDragonForm>({
       name: '',
@@ -44,24 +46,28 @@ const UpdateDragonPage: NextPage = () => {
     formRef?.current?.reset();
   };
 
+  const doCallAPI = async (dragon: UpdateDragonDTO) => {
+    setIsLoading(true);
+    const { data, error } = await doCallUpdateDetails(String(id), dragon);
+
+    if (!error && data) {
+      resetForm();
+    } else {
+      alert('bah cpx, nem te conto...');
+    }
+    setIsLoading(false);
+  };
+
   const handleSubmitUpdateDragon = async (dragon: UpdateDragonDTO) => {
     try {
       formRef.current.setErrors({});
 
-      const schema = Yup.object().shape({
-        name: Yup.string().min(6).required(),
-        type: Yup.string().min(6).required(),
-        histories: Yup.string().min(6).required(),
-      });
-
-      await schema.validate(dragon, {
+      await dragonFormSchema.validate(dragon, {
         abortEarly: false,
       });
 
-      const { data, error } = await doCallUpdateDetails(String(id), dragon);
-
       // adicionar toast
-      !error && data ? resetForm() : alert('bah cpx, nem te conto...');
+      doCallAPI(dragon);
     } catch (err) {
       const validationErrors = {} as any;
 
@@ -94,8 +100,9 @@ const UpdateDragonPage: NextPage = () => {
   return (
     <UpdateDragonTemplate
       formRef={formRef}
-      buttonName="sign-in-button"
+      isLoading={isLoading}
       initalValues={initalValues}
+      buttonName="sign-in-button"
       buttonChildren="Salvar alterações"
       textInputDragonType="type"
       textInputDragonName="name"
