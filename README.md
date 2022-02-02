@@ -14,7 +14,7 @@ How design pattern this project is using, [Atomic Design](https://bradfrost.com/
 
 This project was make to improve my skills with NextJs, TypeScript and SCSS. I'll be happy if you could provide me any feedback about the project, code, structure or anything that you can report that could make me a better developer!
 
-Send me a email: luccasspecht70@gmail.com
+Send me a email: luccasspecht70@gmail.com.
 
 Connect with me at [LinkedIn](https://www.linkedin.com/in/luccas-specht/).
 
@@ -25,7 +25,7 @@ It's free!
 ## Some observations about this app
 
 - There aren't functionalities of login and register by server side, the buttons and the forms in the login screen and register screen are only for UI matters.
-- To access the app you must be authenticated, otherwise you'll be redirect to the login page. The app stores your information in the cookies to knows if your session is  authenticated or not
+- To access the app you must be authenticated, otherwise you'll be redirect to the login page. The app stores your information in the cookies to knows if your session is  authenticated or it isn't.
 
 ## Functionalities
 
@@ -35,7 +35,7 @@ It's free!
 - create a dragon
 - Update dragon informations
 - Get informations about a specific dragon like name, type, description and picture  
-- Try access a page that doesn't exists you'll be redirect to the page not found screen.
+- Try access a page that doesn't exists you'll be redirect to the page not found screen
 
 ## Getting Started
 
@@ -97,12 +97,12 @@ $ npm dev
 
 You can send how many PR's do you want, I'll be glad to analyse and accept them! And if you have any question about the project...
 
-Send me a email: luccasspecht70@gmail.com
+Send me a email: luccasspecht70@gmail.com.
 
-Connect with me at [LinkedIn](https://www.linkedin.com/in/luccas-specht/)
+Connect with me at [LinkedIn](https://www.linkedin.com/in/luccas-specht/).
 
 Thank you!
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/luccas-specht/dragons-challenge/blob/develop/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/luccas-specht/dragons-challenge/blob/develop/LICENSE) file for details.
