@@ -31,6 +31,18 @@ It's free!
 
 ## Functionalities
 
+- Sign in app with your credentials
+
+- List all dragons created
+
+- remove a dragon
+
+- create a dragon
+
+- Update dragon informations
+
+- Get informations about a specific dragon like name, type, description and picture   
+
 ## Getting Started
 
 ### Prerequisites
