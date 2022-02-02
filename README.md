@@ -11,7 +11,7 @@ If you want to take a look on all screens of the app, they are [here](https://dr
 
 This project was make to improve my skills with NextJs, TypeScript and SCSS. I'll be happy if you could provide me any feedback about the project, code, structure or anything that you can report that could make me a better developer!
 
-Email-me: luccasspecht70@gmail.com
+Send me a email: luccasspecht70@gmail.com
 
 Connect with me at [LinkedIn](https://www.linkedin.com/in/luccas-specht/).
 
