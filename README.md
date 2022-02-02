@@ -8,6 +8,11 @@ If you want to take a look on all screens of the app, they are [here](https://dr
 
 
 ## About this project
+
+The idea of the App is:
+
+_"A simple dragon CRUD system using mobile first principles"._
+
 How design pattern this project is using, [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) to development scalable and readable components and screens.
 
 ## Why?
