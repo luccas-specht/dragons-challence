@@ -35,19 +35,19 @@ To run this project in the development mode, you'll need to have a basic environ
 
 ### Installing
 
-**Cloning the Repository**
+**Cloning the Repository:**
 
 ```
 $ git clone https://github.com/luccas-specht/dragons-challeng
 ```
 
-**Open the project**
+**Open the project:**
 
 ```
 $ cd dragons-challeng
 ```
 
-**Installing dependencies**
+**Installing dependencies:**
 
 ```
 $ yarn
