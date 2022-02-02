@@ -31,13 +31,13 @@ It's free!
 
 - There aren't functionalities of login and register by server side, the buttons and the forms in the login screen and register screen are only for UI matters.
 - To access the site you must be authenticated, otherwise you'll be redirect to the login page. The site stores the user token in the cookie to knows if your session is  authenticated or it isn't.
-- You may use this default user to access the website: 
-   - Nickname: Luccas Specht
-   - Password: Senh4S#c8t4* 
 
 ## Functionalities
 
 - Sign in site with your credentials
+   - You may use this default user to access the website: 
+      - Nickname: Luccas Specht
+      - Password: Senh4S#c8t4* 
 - List all dragons created
 - remove a dragon
 - create a dragon
