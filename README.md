@@ -22,7 +22,10 @@ It's free!
 
 ## Some observations about this app
 
-1 - There isn't functionality of Login/Register, the buttons and the forms in the Login Screen are only for UI matters.
+- There isn't functionality of Login/Register, the buttons and the forms in the Login Screen are only for UI matters.
+
+- If you try access a page that doesn't exists you'll be redirect to the page not found screen.
+
 
 ## Functionalities
 
