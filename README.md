@@ -10,13 +10,13 @@ If you want to take a look on all screens of the app, they are [here](https://dr
 
 ## Why?
 
-This project is part of my personal portfolio, so, I'll be happy if you could provide me any feedback about the project, code, structure or anything that you can report that could make me a better developer!
+This project was make to improve my skills with NextJs, TypeScript and SCSS. I'll be happy if you could provide me any feedback about the project, code, structure or anything that you can report that could make me a better developer!
 
 Email-me: luccasspecht70@gmail.com
 
 Connect with me at [LinkedIn](https://www.linkedin.com/in/luccas-specht/).
 
-Also, you can use this Project as you wish, be for study, be for make improvements or whatever.
+Also, you can use this project as you wish be for study, be for make improvements or whatever.
 
 It's free!
 
@@ -30,7 +30,7 @@ It's free!
 
 ### Prerequisites
 
-To run this project in the development mode, you'll need to have a basic environment to run a Next Js App, that can be found [here](https://nextjs.org/docs/getting-started).
+To run this project in the development mode, you'll need to have a basic environment to run a NextJs App, that can be found [here](https://nextjs.org/docs/getting-started).
 
 
 ### Installing
