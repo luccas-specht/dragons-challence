@@ -4,7 +4,7 @@
 ![Preview-Screens](https://github.com/luccas-specht/dragons-challenge/blob/main/images/frame-page-one.png)
 ![Preview-Screens](https://github.com/luccas-specht/dragons-challenge/blob/main/images/frame-page-second.png)
 
-If you want to take a look on all screens of the App, they are [here](https://drive.google.com/drive/folders/1S8fNuvo6WKrvTXs2iCd9y0lFNx3ngDKo?usp=sharing).
+If you want to take a look on all screens of the app, they are [here](https://drive.google.com/drive/folders/1S8fNuvo6WKrvTXs2iCd9y0lFNx3ngDKo?usp=sharing).
 
 ## About this project
 
