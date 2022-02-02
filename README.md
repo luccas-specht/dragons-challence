@@ -1,23 +1,26 @@
 
 # Dragon's Challenge
 
-![Preview-Screens](https://github.com/steniowagner/mindCast/blob/master/PUXA-R10!.png)
+![Preview-Screens](https://github.com/luccas-specht/dragons-challenge/blob/main/images/frame-page-one.png)
+![Preview-Screens](https://github.com/luccas-specht/dragons-challenge/blob/main/images/frame-page-second.png)
+
+If you want to take a look on all screens of the app, they are [here](https://drive.google.com/drive/folders/1S8fNuvo6WKrvTXs2iCd9y0lFNx3ngDKo?usp=sharing).
 
 ## About this project
 
 ## Why?
 
-This project is part of my personal portfolio, so, I'll be happy if you could provide me any feedback about the project, code, structure or anything that you can report that could make me a better developer!
+This project was make to improve my skills with NextJs, TypeScript and SCSS. I'll be happy if you could provide me any feedback about the project, code, structure or anything that you can report that could make me a better developer!
 
 Email-me: luccasspecht70@gmail.com
 
 Connect with me at [LinkedIn](https://www.linkedin.com/in/luccas-specht/).
 
-Also, you can use this Project as you wish, be for study, be for make improvements or whatever.
+Also, you can use this project as you wish be for study, be for make improvements or whatever.
 
 It's free!
 
-## Some observations about this App
+## Some observations about this app
 
 1 - There isn't functionality of Login/Register, the buttons and the forms in the Login Screen are only for UI matters.
 
@@ -27,24 +30,24 @@ It's free!
 
 ### Prerequisites
 
-To run this project in the development mode, you'll need to have a basic environment to run a Next Js App, that can be found [here](https://nextjs.org/docs/getting-started).
+To run this project in the development mode, you'll need to have a basic environment to run a NextJs App, that can be found [here](https://nextjs.org/docs/getting-started).
 
 
 ### Installing
 
-**Cloning the Repository**
+**Cloning the Repository:**
 
 ```
 $ git clone https://github.com/luccas-specht/dragons-challeng
 ```
 
-**Open the project**
+**Open the project:**
 
 ```
 $ cd dragons-challeng
 ```
 
-**Installing dependencies**
+**Installing dependencies:**
 
 ```
 $ yarn
