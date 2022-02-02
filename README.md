@@ -4,12 +4,12 @@
 ![Preview-Screens](https://github.com/luccas-specht/dragons-challenge/blob/main/images/frame-page-one.png)
 ![Preview-Screens](https://github.com/luccas-specht/dragons-challenge/blob/main/images/frame-page-second.png)
 
-If you want to take a look on all screens of the app, they are [here](https://drive.google.com/drive/folders/1S8fNuvo6WKrvTXs2iCd9y0lFNx3ngDKo?usp=sharing).
+If you want to take a look on all screens of the web site, they are [here](https://drive.google.com/drive/folders/1S8fNuvo6WKrvTXs2iCd9y0lFNx3ngDKo?usp=sharing).
 
 
 ## About this project
 
-The idea of the App is:
+The idea of the web site is:
 
 _"A simple dragon CRUD system using mobile first principles"._
 
@@ -27,14 +27,14 @@ Also, you can use this project as you wish be for study, be for make improvement
 
 It's free!
 
-## Some observations about this app
+## Some observations about this web site
 
 - There aren't functionalities of login and register by server side, the buttons and the forms in the login screen and register screen are only for UI matters.
-- To access the app you must be authenticated, otherwise you'll be redirect to the login page. The app stores the user token in the cookie to knows if your session is  authenticated or it isn't.
+- To access the site you must be authenticated, otherwise you'll be redirect to the login page. The site stores the user token in the cookie to knows if your session is  authenticated or it isn't.
 
 ## Functionalities
 
-- Sign in app with your credentials
+- Sign in site with your credentials
 - List all dragons created
 - remove a dragon
 - create a dragon
@@ -45,8 +45,7 @@ It's free!
 ## Getting Started
 
 ### Prerequisites
-To run this project in the development mode, you'll need to have a basic environment to run a NextJs App, that can be found [here](https://nextjs.org/docs/getting-started).
-
+To run this project in the development mode, you'll need to have a basic environment to run a NextJs project, that can be found [here](https://nextjs.org/docs/getting-started).
 
 ### Installing
 **Cloning the Repository:**
