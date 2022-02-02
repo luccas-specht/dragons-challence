@@ -22,8 +22,8 @@ It's free!
 
 ## Some observations about this app
 
-- There isn't functionality of login/register by server side, the buttons and the forms in the login screen and register screen are only for UI matters.
-  But for access the app you must be authenticated, otherwise you'll be redirect to the login page.
+- There aren't functionalities of login and register by server side, the buttons and the forms in the login screen and register screen are only for UI matters.
+  But for access the app you must be authenticated, otherwise you'll be redirect to the login page. The app stores your information in the cookies to know if your session is authenticated or not
 
 - If you try access a page that doesn't exists you'll be redirect to the page not found screen.
 
