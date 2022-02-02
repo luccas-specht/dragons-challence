@@ -27,7 +27,6 @@ It's free!
 
 - If you try access a page that doesn't exists you'll be redirect to the page not found screen.
 
-
 ## Functionalities
 
 - Sign in app with your credentials
@@ -75,6 +74,17 @@ _or_
 $ npm install
 ```
 
+### Running
+
+```
+$ yarn dev
+```
+
+_or_
+
+```
+$ npm dev
+```
 
 ## Built with
 - [Axios](https://github.com/axios/axios) - HTTP client
