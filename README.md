@@ -7,7 +7,7 @@
 If you want to take a look on all screens of the app, they are [here](https://drive.google.com/drive/folders/1S8fNuvo6WKrvTXs2iCd9y0lFNx3ngDKo?usp=sharing).
 
 
-## About
+## About this project
 
 This project was make to improve my skills with NextJs, TypeScript and SCSS. I'll be happy if you could provide me any feedback about the project, code, structure or anything that you can report that could make me a better developer!
 
