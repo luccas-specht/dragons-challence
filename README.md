@@ -20,7 +20,7 @@ Also, you can use this project as you wish be for study, be for make improvement
 
 It's free!
 
-## Some observations about this App
+## Some observations about this app
 
 1 - There isn't functionality of Login/Register, the buttons and the forms in the Login Screen are only for UI matters.
 
