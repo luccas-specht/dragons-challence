@@ -4,16 +4,16 @@
 ![Preview-Screens](https://github.com/luccas-specht/dragons-challenge/blob/main/images/frame-page-one.png)
 ![Preview-Screens](https://github.com/luccas-specht/dragons-challenge/blob/main/images/frame-page-second.png)
 
-If you want to take a look on all screens of the web site, they are [here](https://drive.google.com/drive/folders/1S8fNuvo6WKrvTXs2iCd9y0lFNx3ngDKo?usp=sharing).
+If you want to take a look on all screens of the website, they are [here](https://drive.google.com/drive/folders/1S8fNuvo6WKrvTXs2iCd9y0lFNx3ngDKo?usp=sharing).
 
 
 ## About this project
 
-The idea of the web site is:
+The idea of the website is:
 
-_"A simple dragon CRUD system using mobile first principles"._
+_"A simple dragon CRUD system using mobile first development"._
 
-How design pattern this project is using, [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) to development scalable and readable components and screens.
+Mobile first is a development with focus on creates web designs and websites first on mobile devices and then adapts them for desktop. This project is using [atomic design](https://bradfrost.com/blog/post/atomic-web-design/), to development scalable and readable components and screens.
 
 ## Why?
 
@@ -27,7 +27,7 @@ Also, you can use this project as you wish be for study, be for make improvement
 
 It's free!
 
-## Some observations about this web site
+## Some observations about this website
 
 - There aren't functionalities of login and register by server side, the buttons and the forms in the login screen and register screen are only for UI matters.
 - To access the site you must be authenticated, otherwise you'll be redirect to the login page. The site stores the user token in the cookie to knows if your session is  authenticated or it isn't.
