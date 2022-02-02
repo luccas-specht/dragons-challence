@@ -13,19 +13,7 @@ The idea of the website is:
 
 _"A simple dragon CRUD system using mobile first development"._
 
-Mobile first is a development with focus on creates web designs and websites first on mobile devices and then adapts them for desktop. This project is using [atomic design](https://bradfrost.com/blog/post/atomic-web-design/), to development scalable and readable screens and components.
-
-## Why?
-
-This project was make to improve my skills with NextJs, TypeScript and SCSS. I'll be happy if you could provide me any feedback about the project, code, structure or anything that you can report that could make me a better developer!
-
-Send me a email: luccasspecht70@gmail.com.
-
-Connect with me at [LinkedIn](https://www.linkedin.com/in/luccas-specht/).
-
-Also, you can use this project as you wish be for study, be for make improvements or whatever.
-
-It's free!
+Mobile first is a development with focus on creates websites first on mobile devices and then adapts them for desktop, this project has design to desktop too, about its development pattern it's using [atomic design](https://bradfrost.com/blog/post/atomic-web-design/) to development scalable and readable screens and components.
 
 ## Some observations about this website
 
@@ -34,7 +22,7 @@ It's free!
 
 ## Functionalities
 
-- Sign in site with your credentials
+- Sign in with your credentials
    - You may use this default user to access the website: 
       - Nickname: Luccas Specht
       - Password: Senh4S#c8t4* 
