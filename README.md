@@ -57,7 +57,7 @@ $ yarn
 _or_
 
 ```
-$ npm install
+$ npm i
 ```
 
 ### Running
