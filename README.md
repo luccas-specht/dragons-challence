@@ -79,13 +79,13 @@ $ npm dev
 - [ESlint](https://eslint.org/) - Linter
 - [Moment](https://momentjs.com) - Date Formatter
 - [NextJs](https://nextjs.org) - A Framework for ReactJs 
-- [Nookies](https://prettier.io/) - A collection of cookie helpers for NextJs
+- [Nookies](https://github.com/maticzav/nookies) - A collection of cookie helpers for NextJs
 - [Prettier](https://prettier.io/) - Code formatter
 - [React Icons](https://react-icons.github.io/react-icons/) - Icons for ReactJs
 - [React Toastify](https://fkhadra.github.io/react-toastify/introduction) - Notification for ReactJs
 - [TypeScript](https://www.typescriptlang.org) - JavaScript with syntax for types
 - [Unform](https://unform.dev) - A performance-focused API for creating forms
-- [Yup](https://docs.yup.io) - Schema validation
+- [Yup](https://www.npmjs.com/package/yup) - Schema validation
 
 
 ## Contributing
