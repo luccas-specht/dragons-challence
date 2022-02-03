@@ -41,12 +41,12 @@ To run this project in the development mode, you'll need to have a basic environ
 ### Installing
 **Cloning the Repository:**
 ```
-$ git clone https://github.com/luccas-specht/dragons-challeng
+$ git clone https://github.com/luccas-specht/dragons-challenge
 ```
 
 **Open the project:**
 ```
-$ cd dragons-challeng
+$ cd dragons-challenge
 ```
 
 **Installing dependencies:**
