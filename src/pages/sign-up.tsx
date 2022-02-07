@@ -7,7 +7,6 @@ import type { GetServerSideProps, NextPage } from 'next';
 import { useCreateUser } from '~/hooks';
 import { SubmitDataDTO } from '~/models';
 import { SignUpTemplate } from '~/components';
-import { mainFormSchema } from '~/validations';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -31,6 +30,15 @@ const SignUpPage: NextPage = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
+  const schema = Yup.object().shape({
+    nickname: Yup.string()
+      .min(10, 'Mínimo de 10 caracteres.')
+      .required('Por favor, preencha este campo.'),
+    password: Yup.string()
+      .min(6, 'Mínimo de 6 caracteres.')
+      .required('Por favor, preencha este campo.'),
+  });
+
   const doCallAPI = async (data: SubmitDataDTO) => {
     setIsLoading(true);
     await callAPI(data);
@@ -41,7 +49,7 @@ const SignUpPage: NextPage = () => {
     try {
       formRef.current.setErrors({});
 
-      await mainFormSchema.validate(data, {
+      await schema.validate(data, {
         abortEarly: false,
       });
 
