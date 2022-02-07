@@ -92,7 +92,7 @@ $ npm dev
 
 You can send how many PR's do you want, I'll be glad to analyse and accept them! And if you have any question about the project...
 
-Send me a email: luccasspecht70@gmail.com.
+Send me a email luccasspecht70@gmail.com.
 
 Connect with me at [LinkedIn](https://www.linkedin.com/in/luccas-specht/).
 
