@@ -13,7 +13,7 @@ The idea of the website is:
 
 _"A simple dragon CRUD system using mobile first development"._
 
-Mobile first is a development with focus on creates websites first on mobile devices and then adapts them for desktop, this project has design to desktop too, about its design pattern it's using [atomic design](https://bradfrost.com/blog/post/atomic-web-design/) to development scalable and readable screens and components.
+Mobile first is a development with focus on creates websites first on mobile devices and then adapts them for desktop, this project has design to desktop too, about its design pattern it's using [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/) to development scalable and readable screens and components.
 
 ## Some observations about this website
 
