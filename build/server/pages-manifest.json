@@ -1,0 +1,13 @@
+{
+  "/404": "pages/404.html",
+  "/_app": "pages/_app.js",
+  "/create-dragon": "pages/create-dragon.js",
+  "/dragon-details/[id]": "pages/dragon-details/[id].js",
+  "/": "pages/index.js",
+  "/list-dragons": "pages/list-dragons.js",
+  "/sign-in": "pages/sign-in.js",
+  "/sign-up": "pages/sign-up.js",
+  "/update-dragon/[id]": "pages/update-dragon/[id].js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js"
+}
