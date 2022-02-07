@@ -73,7 +73,6 @@ const UpdateDragonPage: NextPage = () => {
         abortEarly: false,
       });
 
-      // adicionar toast
       doCallAPI(dragon);
     } catch (err) {
       const validationErrors = {} as any;

@@ -8,7 +8,7 @@
   min-width: none;
   max-width: 500px;
   padding: 3rem;
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 5px $fourth-black;
 
   &__title {
     width: 100%;
@@ -20,7 +20,7 @@
       font-weight: 500;
       font-size: 18px;
       line-height: 16px;
-      color: #828282;
+      color: $first-gray;
       text-transform: uppercase;
     }
   }
@@ -34,7 +34,5 @@
     width: 100%;
     min-width: 250px;
     max-width: 350px;
-
-    /* Tablet */
   }
 }

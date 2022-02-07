@@ -12,7 +12,7 @@
   }
 
   &--title {
-    color: $primary-blue;
+    color: $first-blue;
     font-weight: 700;
     font-size: 18px;
     padding-top: 10px;
@@ -22,7 +22,7 @@
   &--about {
     font-size: 16px;
     line-height: 22px;
-    color: $tertiary-gray;
+    color: $third-gray;
     text-align: start;
     padding-bottom: 10px;
     word-break: break-word;
@@ -43,7 +43,7 @@
     }
 
     &--title {
-      color: $primary-blue;
+      color: $first-blue;
       font-weight: 700;
       font-size: 18px;
       margin-right: 15px;
@@ -52,7 +52,7 @@
     &--about {
       font-size: 16px;
       line-height: 22px;
-      color: $tertiary-gray;
+      color: $third-gray;
       text-align: start;
     }
   }

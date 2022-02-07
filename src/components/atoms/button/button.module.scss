@@ -8,26 +8,26 @@
 
   &__styles {
     &--primary {
-      color: $primary-white;
-      background-color: $primary-blue;
+      color: $first-white;
+      background-color: $first-blue;
       font-weight: bold;
       font-size: 12px;
       text-transform: uppercase;
 
       &:hover {
-        background-color: darken($primary-blue, 5%);
+        background-color: darken($first-blue, 5%);
       }
     }
 
     &--secondary {
       font-size: 14px;
       line-height: 17px;
-      color: $primary-gray;
-      border: 1.5px solid $secondary-gray;
-      background-color: $primary-white;
+      color: $first-gray;
+      border: 1.5px solid $second-gray;
+      background-color: $first-white;
 
       &:hover {
-        background-color: darken($primary-white, 5%);
+        background-color: darken($first-white, 5%);
       }
     }
   }
