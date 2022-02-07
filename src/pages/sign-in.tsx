@@ -6,9 +6,9 @@ import { parseCookies } from 'nookies';
 import type { GetServerSideProps, NextPage } from 'next';
 
 import { useUser } from '~/hooks';
+import { ADMIN_USER } from '~/constants';
 import { SubmitDataDTO } from '~/models';
 import { SignInTemplate } from '~/components';
-import { mainFormSchema } from '~/validations';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { '@dragonsChallenge.token': token } = parseCookies(ctx);
@@ -57,6 +57,17 @@ const SignInPage: NextPage = () => {
     },
   ];
 
+  const schema = Yup.object().shape({
+    nickname: Yup.string().equals(
+      [ADMIN_USER.nickname],
+      'Usuário ou apelido não corresponde ao Usuário Admin.'
+    ),
+    password: Yup.string().equals(
+      [ADMIN_USER.password],
+      'Senha não corresponde ao Usuário Admin.'
+    ),
+  });
+
   const doCallAPI = async (data: SubmitDataDTO) => {
     setIsLoading(true);
     await login(data);
@@ -67,7 +78,7 @@ const SignInPage: NextPage = () => {
     try {
       formRef.current.setErrors({});
 
-      await mainFormSchema.validate(data, {
+      await schema.validate(data, {
         abortEarly: false,
       });
 
