@@ -23,7 +23,7 @@ Mobile first is a development with focus on creates websites first on mobile dev
 ## Functionalities
 
 - Sign in with your credentials
-   - You may use this default user to access the website: 
+   - You must use this default user, and only it, to access the website: 
       - Nickname: Luccas Specht
       - Password: Senh4S#c8t4* 
 - List all dragons created
