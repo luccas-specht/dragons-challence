@@ -17,7 +17,7 @@
       width: 100%;
 
       &--title {
-        color: $primary-blue;
+        color: $first-blue;
         font-weight: bold;
         font-size: 20px;
         text-transform: uppercase;
@@ -26,7 +26,7 @@
       &--description {
         font-size: 18px;
         line-height: 23.4px;
-        color: #4f4f4f;
+        color: $sixth-black;
         text-align: start;
         max-width: 440px;
         margin-top: 20px;
@@ -39,6 +39,6 @@
     font-weight: bold;
     font-size: 15px;
     text-align: start;
-    color: #828282;
+    color: $first-gray;
   }
 }

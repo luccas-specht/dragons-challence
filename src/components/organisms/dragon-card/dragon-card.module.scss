@@ -1,7 +1,7 @@
 .card {
-  background-color: $primary-background-color;
+  background-color: $first-background-color;
   border-radius: 10px;
-  box-shadow: 0 4px 5px $quarterly-black;
+  box-shadow: 0 4px 5px $fourth-black;
   overflow: hidden;
   position: relative;
   margin: 1rem;
@@ -17,7 +17,7 @@
     height: 40px;
 
     svg {
-      color: $primary-gray;
+      color: $first-gray;
     }
 
     &--is-showing {
@@ -45,14 +45,14 @@
       justify-content: center;
       width: 100%;
       height: 40px;
-      color: $primary-gray;
+      color: $first-gray;
       font-size: 17px;
       font-weight: 400;
 
       &:hover {
-        color: $primary-white;
+        color: $first-white;
         border-radius: 10px;
-        background-color: $primary-blue;
+        background-color: $first-blue;
       }
     }
   }

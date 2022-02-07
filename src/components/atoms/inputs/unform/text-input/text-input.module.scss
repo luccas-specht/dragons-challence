@@ -16,23 +16,23 @@
     font-weight: 500;
     font-size: 13px;
     line-height: 16px;
-    color: $primary-black;
+    color: $first-black;
     width: 100%;
   }
 
   &__input {
     font-size: 13px;
     line-height: 16px;
-    color: $primary-black;
+    color: $first-black;
     border-radius: 4px;
     width: 100%;
     min-width: 250px;
     height: 35px;
-    border: 1.5px solid $primary-blue;
+    border: 1.5px solid $first-blue;
     flex: 1;
 
     &--error {
-      border: 1.5px solid #c53030;
+      border: 1.5px solid $first-red;
 
       @media (max-width: 480px) {
         min-width: 200px;

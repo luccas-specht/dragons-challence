@@ -19,7 +19,6 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
   const { call } = useSignInRequest();
   const cookieExpiriesInTwoHours = 60 * 60 * 2;
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState<LoggedInUser | null>(null);
 
   useEffect(() => {
@@ -41,21 +40,17 @@ export const LoggedInUserProvider = ({ children }: UserProviderData) => {
     });
 
     setUser(user);
-    setIsAuthenticated(true);
     Router.push('/list-dragons');
   };
 
   const logOut = async () => {
     setUser(null);
-    setIsAuthenticated(false);
-    destroyCookie({}, '@dragonsChallenge.token');
+    destroyCookie(null, '@dragonsChallenge.token');
     Router.push('/sign-in');
   };
 
   return (
-    <LoggedInUserContext.Provider
-      value={{ user, isAuthenticated, login, logOut }}
-    >
+    <LoggedInUserContext.Provider value={{ user, login, logOut }}>
       {children}
     </LoggedInUserContext.Provider>
   );

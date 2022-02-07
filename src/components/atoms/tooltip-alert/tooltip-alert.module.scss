@@ -3,7 +3,7 @@
 
   margin-top: 20px;
   margin-left: 3px;
-  color: #c53030;
+  color: $first-red;
 
   cursor: pointer;
 
@@ -20,12 +20,12 @@
       min-width: 200px;
       flex-wrap: wrap;
       text-align: center;
-      background-color: #c53030;
+      background-color: $first-red;
       padding: 8px;
       border-radius: 4px;
       font-size: 14px;
       font-weight: 500;
-      color: $primary-white;
+      color: $first-white;
 
       opacity: 0;
       transition: opacity 0.4s;

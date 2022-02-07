@@ -17,13 +17,13 @@
     }
 
     &::before {
-      border-color: $primary-blue;
+      border-color: $first-blue;
       border-right-color: transparent;
       animation-duration: 2s;
     }
 
     &::after {
-      border-color: $primary-white;
+      border-color: $first-white;
       border-left-color: transparent;
     }
   }
