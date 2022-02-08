@@ -36,7 +36,8 @@ Mobile first is a development with focus on creates websites first on mobile dev
 
 ## Architecture
 
-![image](https://user-images.githubusercontent.com/40741571/153006667-c1e047a8-1374-43f9-8ee2-a1eaf66e588e.png)
+![image](https://user-images.githubusercontent.com/40741571/153007139-1ccd1baa-300c-4ada-82cb-acf62696ce29.png)
+
 
 
 ## Getting Started
