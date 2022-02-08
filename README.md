@@ -4,7 +4,7 @@
 ![Preview-Screens](https://github.com/luccas-specht/dragons-challenge/blob/main/images/frame-page-one.png)
 ![Preview-Screens](https://github.com/luccas-specht/dragons-challenge/blob/main/images/frame-page-second.png)
 
-If you want to take a look on all screens of the website, they are [here](https://drive.google.com/drive/folders/1S8fNuvo6WKrvTXs2iCd9y0lFNx3ngDKo?usp=sharing).
+If you want to take a look on all screens of the website, they're [here](https://drive.google.com/drive/folders/1S8fNuvo6WKrvTXs2iCd9y0lFNx3ngDKo?usp=sharing).
 
 
 ## About this project
@@ -39,7 +39,6 @@ Mobile first is a development with focus on creates websites first on mobile dev
 ![image](https://user-images.githubusercontent.com/40741571/153007139-1ccd1baa-300c-4ada-82cb-acf62696ce29.png)
 
 
-
 ## Getting Started
 
 ### Prerequisites
@@ -68,6 +67,8 @@ $ npm i
 ```
 
 ### Running
+**Development mode:**
+
 ```
 $ yarn dev
 ```
@@ -76,6 +77,22 @@ _or_
 
 ```
 $ npm dev
+```
+
+**Production mode:**
+
+If you want to take a look on production mode without run nothing, it's [here](https://dragons-challenge.vercel.app).
+
+_or_
+
+```
+$ yarn build && yarn start
+```
+
+_or_
+
+```
+$ npm build && npm start
 ```
 
 ## Built with
