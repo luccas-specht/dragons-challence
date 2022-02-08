@@ -40,7 +40,7 @@ Mobile first is a development with focus on creates websites first on mobile dev
 
  The folders Public, Images and Src(source) are in the root level.
  
- The Public is a default and auto generated folder by NextJs, The Images is only a folder to storage shoot screens and save them in the Github. And the last one of root level,    the Src folder that contains the core website code.  
+ The Public is a default and auto generated folder by NextJs, The Images is only a folder to storage shoot screens and save them on Github. And the last one of root level,    the Src folder that contains the core website code.  
 
 
 ## Getting Started
