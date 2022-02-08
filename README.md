@@ -82,6 +82,7 @@ $ npm dev
 
 - [Axios](https://github.com/axios/axios) - HTTP client
 - [Babel](https://babeljs.io/) - JavaScript compiler
+- [BEM](http://getbem.com/introduction/) - Standard for CSS
 - [Classnames](https://github.com/JedWatson/classnames) - conditionally styles class names
 - [ESlint](https://eslint.org/) - Linter
 - [Moment](https://momentjs.com) - Date Formatter
@@ -90,6 +91,7 @@ $ npm dev
 - [Prettier](https://prettier.io/) - Code formatter
 - [React Icons](https://react-icons.github.io/react-icons/) - Icons for ReactJs
 - [React Toastify](https://fkhadra.github.io/react-toastify/introduction) - Notification for ReactJs
+- [SCSS](https://sass-lang.com/documentation/syntax) - CSS preprocessor
 - [TypeScript](https://www.typescriptlang.org) - JavaScript with syntax for types
 - [Unform](https://unform.dev) - A performance-focused API for creating forms
 - [Yup](https://www.npmjs.com/package/yup) - Schema validation
