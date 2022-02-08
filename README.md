@@ -38,6 +38,10 @@ Mobile first is a development with focus on creates websites first on mobile dev
 
 ![image](https://user-images.githubusercontent.com/40741571/153007139-1ccd1baa-300c-4ada-82cb-acf62696ce29.png)
 
+ The folders Public, Images and Src(source) are in the root level.
+ 
+ The Public is a default and auto generated folder by NextJs, The Images is only a folder to storage shoot screens and save them in the Github. And the last one of root level,    the src folder contains the core website code.  
+
 
 ## Getting Started
 
