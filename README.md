@@ -81,7 +81,7 @@ $ npm dev
 
 **Production mode:**
 
-If you want to take a look on production mode without run nothing, it's [here](https://dragons-challenge.vercel.app).
+If you want to take a look at production mode without running anything, it's [here](https://dragons-challenge.vercel.app).
 
 _or_
 
