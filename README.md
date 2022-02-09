@@ -31,7 +31,7 @@ Mobile first is a development with focus on creates websites first on mobile dev
 - create a dragon
 - Update dragon informations
 - Get informations about a specific dragon like name, type, description and picture  
-- Try access a page that doesn't exists you'll be redirect to the page not found screen
+- Try access a page that doesn't exists and you'll be redirect to the page not found screen
 
 ## Production review
 
