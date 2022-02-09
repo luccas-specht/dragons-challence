@@ -35,7 +35,7 @@ Mobile first is a development with focus on creates websites first on mobile dev
 
 ## Production review
 
-If you want to take a look at production mode, it's [here](https://dragons-challenge.vercel.app).
+If you want to take a look how it works on production, it's [here](https://dragons-challenge.vercel.app).
 
 ## Architecture
 
