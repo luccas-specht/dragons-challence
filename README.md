@@ -6,7 +6,6 @@
 
 If you want to take a look on all screens of the website, they're [here](https://drive.google.com/drive/folders/1S8fNuvo6WKrvTXs2iCd9y0lFNx3ngDKo?usp=sharing).
 
-
 ## About this project
 
 The idea of the website is:
@@ -34,6 +33,9 @@ Mobile first is a development with focus on creates websites first on mobile dev
 - Get informations about a specific dragon like name, type, description and picture  
 - Try access a page that doesn't exists you'll be redirect to the page not found screen
 
+## Production review
+
+If you want to take a look at production mode, it's [here](https://dragons-challenge.vercel.app).
 
 ## Architecture
 
@@ -81,8 +83,6 @@ $ npm dev
 ```
 
 **Production mode:**
-
-If you want to take a look at production mode without running anything, it's [here](https://dragons-challenge.vercel.app).
 
 _or_
 
