@@ -121,7 +121,7 @@ You can send how many PR's do you want, I'll be glad to analyse and accept them!
 
 Send me a email luccasspecht70@gmail.com.
 
-Connect with me at [LinkedIn](https://www.linkedin.com/in/luccas-specht/).
+Connect with me on [LinkedIn](https://www.linkedin.com/in/luccas-specht/).
 
 Thank you!
 
