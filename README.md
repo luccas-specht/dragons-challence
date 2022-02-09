@@ -19,6 +19,7 @@ Mobile first is a development with focus on creates websites first on mobile dev
 
 - There aren't functionalities of login and register by server side, the buttons and the forms in the login screen and register screen are only for UI matters.
 - To access the site you must be authenticated, otherwise you'll be redirect to the login page. The site stores the user token in the cookie to knows if your session is  authenticated or it isn't.
+- The API doesn't response images to dragons or users, for that, all images are stored on client side and they're displayed randomly.  
 
 ## Functionalities
 
@@ -37,10 +38,6 @@ Mobile first is a development with focus on creates websites first on mobile dev
 ## Architecture
 
 ![image](https://user-images.githubusercontent.com/40741571/153007139-1ccd1baa-300c-4ada-82cb-acf62696ce29.png)
-
- The folders Public, Images and Src(source) are in the root level.
- 
- The Public is a default and auto generated folder by NextJs, The Images is only a folder to storage shoot screens and save them on Github. And the last one of root level,    the Src folder that contains the core website code.  
 
 
 ## Getting Started
