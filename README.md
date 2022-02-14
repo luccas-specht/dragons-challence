@@ -33,10 +33,6 @@ Mobile first is a development with focus on creates websites first on mobile dev
 - Get informations about a specific dragon like name, type, description and picture  
 - Try access a page that doesn't exists and you'll be redirect to the page not found screen
 
-## Production review
-
-If you want to take a look how it works on production, it's [here](https://dragons-challenge.vercel.app).
-
 ## Architecture
 
 ![image](https://user-images.githubusercontent.com/40741571/153007139-1ccd1baa-300c-4ada-82cb-acf62696ce29.png)
