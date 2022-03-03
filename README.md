@@ -46,7 +46,7 @@ To run this project in the development mode, you'll need to have a basic environ
 ### Installing
 **Cloning the Repository:**
 ```
-$ git clone https://github.com/luccas-specht/dragons-challenge
+$ git clone https://github.com/luccas-specht/dragons-challenge.git
 ```
 
 **Open the project:**
