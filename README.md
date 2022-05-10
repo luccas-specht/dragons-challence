@@ -113,7 +113,7 @@ $ npm build && npm start
 
 ## Contributing
 
-You can send how many PR's do you want, I'll be glad to analyse and accept them! And if you have any question about the project...
+You can send how many PR's do you want, I'm gonna be glad to analyse and accept them! And if you have any question about the project...
 
 Send me an email luccasspecht70@gmail.com.
 
